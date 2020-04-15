@@ -49,6 +49,9 @@ class LabelSwitchView: UIView {
     func initialSetup() {
         label.font = UIFont.settingsTextFont
         label.textColor = UIColor.textColor
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.6
         
         switchh.onTintColor = UIColor.walkCounterColor
         switchh.thumbTintColor = UIColor.lightGray

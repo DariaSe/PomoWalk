@@ -38,7 +38,7 @@ class ScheduleUnitView: UIView {
     }
     
     func setupLayout() {
-        stackView.pinToEdges(to: self)
+        stackView.pinToActualEdges(of: self)
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center

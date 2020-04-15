@@ -43,11 +43,11 @@ class LabelStepperView: UIView {
     }
     
     func setupLayout() {
-        stackView.pinToEdges(to: self)
+        stackView.pinToActualEdges(of: self)
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
-        stepperUnit.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        stepperUnit.widthAnchor.constraint(equalToConstant: 70).isActive = true
         subStackView.axis = .horizontal
         subStackView.spacing = 20
         stackView.addArrangedSubview(firstLabel)
@@ -59,6 +59,7 @@ class LabelStepperView: UIView {
     func initialSetup() {
         firstLabel.font = UIFont.settingsTextFont
         firstLabel.textColor = UIColor.textColor
+        firstLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
         
         secondLabel.font = UIFont.settingsTextFont
         secondLabel.textColor = UIColor.textColor

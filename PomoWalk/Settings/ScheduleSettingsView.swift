@@ -62,18 +62,23 @@ class ScheduleSettingsView: UIView {
             lunchStartView.isHidden = true
             lunchEndView.isHidden = true
         }
-
+        
     }
     
     func initialSetup() {
-        isScheduledView.text = "Schedule notifications"
+        isScheduledView.text = "Schedule notifications".localized
         isScheduledView.switchh.isOn = ScheduleSettings.isScheduled
         isScheduledView.valueSet = { [weak self] bool in
             ScheduleSettings.isScheduled = bool
             self?.scheduleContainerView.isHidden = !bool
         }
         
-        scheduleStartView.text = "From"
+        scheduleStartView.text = "From".localized
+        scheduleStartView.hoursStepperUnit.minValue = 0
+        scheduleStartView.hoursStepperUnit.maxValue = 23
+        scheduleStartView.minutesStepperUnit.minValue = 0
+        scheduleStartView.minutesStepperUnit.maxValue = 60
+        scheduleStartView.minutesStepperUnit.step = 5
         scheduleStartView.hoursStepperUnit.value = ScheduleSettings.scheduleStartHour
         scheduleStartView.minutesStepperUnit.value = ScheduleSettings.scheduleStartMinute
         scheduleStartView.hoursStepperUnit.valueSet = { value in
@@ -83,7 +88,12 @@ class ScheduleSettingsView: UIView {
             ScheduleSettings.scheduleStartMinute = value
         }
         
-        scheduleEndView.text = "To"
+        scheduleEndView.text = "To".localized
+        scheduleEndView.hoursStepperUnit.minValue = 0
+        scheduleEndView.hoursStepperUnit.maxValue = 23
+        scheduleEndView.minutesStepperUnit.minValue = 0
+        scheduleEndView.minutesStepperUnit.maxValue = 60
+        scheduleEndView.minutesStepperUnit.step = 5
         scheduleEndView.hoursStepperUnit.value = ScheduleSettings.scheduleEndHour
         scheduleEndView.minutesStepperUnit.value = ScheduleSettings.scheduleEndMinute
         scheduleEndView.hoursStepperUnit.valueSet = { value in
@@ -93,7 +103,7 @@ class ScheduleSettingsView: UIView {
             ScheduleSettings.scheduleEndMinute = value
         }
         
-        isLunchPlannedView.text = "Lunch pause"
+        isLunchPlannedView.text = "Lunch pause".localized
         isLunchPlannedView.switchh.isOn = ScheduleSettings.isLunchPlanned
         isLunchPlannedView.valueSet = { [weak self] bool in
             ScheduleSettings.isLunchPlanned = bool
@@ -101,7 +111,12 @@ class ScheduleSettingsView: UIView {
             self?.lunchEndView.isHidden = !bool
         }
         
-        lunchStartView.text = "From"
+        lunchStartView.text = "From".localized
+        lunchStartView.hoursStepperUnit.minValue = 0
+        lunchStartView.hoursStepperUnit.maxValue = 23
+        lunchStartView.minutesStepperUnit.minValue = 0
+        lunchStartView.minutesStepperUnit.maxValue = 60
+        lunchStartView.minutesStepperUnit.step = 5
         lunchStartView.hoursStepperUnit.value = ScheduleSettings.lunchStartHour
         lunchStartView.minutesStepperUnit.value = ScheduleSettings.lunchStartMinute
         lunchStartView.hoursStepperUnit.valueSet = { value in
@@ -111,7 +126,12 @@ class ScheduleSettingsView: UIView {
             ScheduleSettings.lunchStartMinute = value
         }
         
-        lunchEndView.text = "To"
+        lunchEndView.text = "To".localized
+        lunchEndView.hoursStepperUnit.minValue = 0
+        lunchEndView.hoursStepperUnit.maxValue = 23
+        lunchEndView.minutesStepperUnit.minValue = 0
+        lunchEndView.minutesStepperUnit.maxValue = 60
+        lunchEndView.minutesStepperUnit.step = 5
         lunchEndView.hoursStepperUnit.value = ScheduleSettings.lunchEndHour
         lunchEndView.minutesStepperUnit.value = ScheduleSettings.lunchEndMinute
         lunchEndView.hoursStepperUnit.valueSet = { value in

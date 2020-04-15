@@ -41,6 +41,8 @@ class BaseSettingsView: UIView {
     func setupLayout() {
         stackView.pinToEdges(to: self)
         stackView.axis = .vertical
+        stackView.spacing = 5
+        stackView.distribution = .equalSpacing
         longPauseStackView.axis = .vertical
         stackView.addArrangedSubview(workDurationView)
         stackView.addArrangedSubview(walkDurationView)
@@ -54,19 +56,25 @@ class BaseSettingsView: UIView {
     }
     
     func initialSetup() {
-        workDurationView.firstText = "Work for"
-        workDurationView.secondText = "minutes"
+        workDurationView.firstText = "Work for".localized
+        workDurationView.secondText = "minutes".localized
+        workDurationView.stepperUnit.minValue = 15
+        workDurationView.stepperUnit.maxValue = 60
+        workDurationView.stepperUnit.step = 5
         workDurationView.stepperUnit.value = BaseSettings.workIntervalDuration
         workDurationView.stepperUnit.valueSet = { value in
             BaseSettings.workIntervalDuration = value
         }
-        walkDurationView.firstText = "Walk for"
-        walkDurationView.secondText = "minutes"
+        walkDurationView.firstText = "Walk for".localized
+        walkDurationView.secondText = "minutes".localized
+        walkDurationView.stepperUnit.minValue = 2
+        walkDurationView.stepperUnit.maxValue = 10
+        walkDurationView.stepperUnit.alwaysShowsTwoDigits = false
         walkDurationView.stepperUnit.value = BaseSettings.walkIntervalDuration
         walkDurationView.stepperUnit.valueSet = { value in
             BaseSettings.walkIntervalDuration = value
         }
-        longPauseSwitchView.text = "Long pause"
+        longPauseSwitchView.text = "Long pause".localized
         longPauseSwitchView.switchh.isOn = BaseSettings.isLongPausePlanned
         longPauseSwitchView.valueSet = { [weak self] bool in
             BaseSettings.isLongPausePlanned = bool
@@ -78,23 +86,29 @@ class BaseSettingsView: UIView {
             longPausePeriodsView.isHidden = true
         }
         longPauseDurationView.firstText = ""
-        longPauseDurationView.secondText = "minutes"
+        longPauseDurationView.secondText = "minutes".localized
+        longPauseDurationView.stepperUnit.minValue = 5
+        longPauseDurationView.stepperUnit.maxValue = 20
+        longPauseDurationView.stepperUnit.alwaysShowsTwoDigits = false
         longPauseDurationView.stepperUnit.value = BaseSettings.longPauseDuration
         longPauseDurationView.stepperUnit.valueSet = { value in
             BaseSettings.longPauseDuration = value
         }
-        longPausePeriodsView.firstText = "after"
-        longPausePeriodsView.secondText = "work intervals"
+        longPausePeriodsView.firstText = "after".localized
+        longPausePeriodsView.secondText = "work intervals".localized
+        longPausePeriodsView.stepperUnit.minValue = 2
+        longPausePeriodsView.stepperUnit.maxValue = 5
+        longPausePeriodsView.stepperUnit.alwaysShowsTwoDigits = false
         longPausePeriodsView.stepperUnit.value = BaseSettings.longPauseAfter
         longPausePeriodsView.stepperUnit.valueSet = { value in
             BaseSettings.longPauseAfter = value
         }
-        isPrereminderSetView.text = "Signal 1 minute before end"
+        isPrereminderSetView.text = "Signal 1 minute before end".localized
         isPrereminderSetView.switchh.isOn = BaseSettings.isPrereminderSet
         isPrereminderSetView.valueSet = { bool in
             BaseSettings.isPrereminderSet = bool
         }
-        continueAutomaticallyView.text = "Continue automatically"
+        continueAutomaticallyView.text = "Continue automatically".localized
         continueAutomaticallyView.switchh.isOn = BaseSettings.isAutoContinued
         continueAutomaticallyView.valueSet = { bool in
             BaseSettings.isAutoContinued = bool

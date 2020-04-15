@@ -35,6 +35,8 @@
 		DA7DE9B52445F88200407C5C /* ScheduleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */; };
 		DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B62445F8E300407C5C /* BaseSettings.swift */; };
 		DA7DE9B924470BBA00407C5C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B824470BBA00407C5C /* Settings.swift */; };
+		DA7DE9BD24474BD600407C5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE9BF24474BD600407C5C /* Localizable.strings */; };
+		DA7DE9C22447563400407C5C /* extension String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9C12447563400407C5C /* extension String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,10 @@
 		DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettings.swift; sourceTree = "<group>"; };
 		DA7DE9B62445F8E300407C5C /* BaseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettings.swift; sourceTree = "<group>"; };
 		DA7DE9B824470BBA00407C5C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		DA7DE9BA24474B7300407C5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DA7DE9BE24474BD600407C5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA7DE9C024474BD800407C5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA7DE9C12447563400407C5C /* extension String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,8 @@
 		DA77DB32243EFEDD00B0B8A1 = {
 			isa = PBXGroup;
 			children = (
+				DA7DE9BF24474BD600407C5C /* Localizable.strings */,
+				DA7DE9C12447563400407C5C /* extension String.swift */,
 				DA77DB3D243EFEDD00B0B8A1 /* PomoWalk */,
 				DA77DB3C243EFEDD00B0B8A1 /* Products */,
 			);
@@ -215,6 +223,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DA77DB32243EFEDD00B0B8A1;
 			productRefGroup = DA77DB3C243EFEDD00B0B8A1 /* Products */;
@@ -234,6 +243,7 @@
 				DA77DB4B243EFEE000B0B8A1 /* LaunchScreen.storyboard in Resources */,
 				DA77DB48243EFEE000B0B8A1 /* Assets.xcassets in Resources */,
 				DA7DE9A824448BD400407C5C /* Montserrat-Bold.ttf in Resources */,
+				DA7DE9BD24474BD600407C5C /* Localizable.strings in Resources */,
 				DA7DE9772440E19900407C5C /* SourceCodePro-Black.ttf in Resources */,
 				DA7DE96D2440A7CC00407C5C /* AnonymousPro-Bold.ttf in Resources */,
 				DA7DE9A724448BD400407C5C /* Montserrat-SemiBold.ttf in Resources */,
@@ -252,6 +262,7 @@
 				DA7DE96924409B6800407C5C /* TimerCounterView.swift in Sources */,
 				DA7DE97B2441A67F00407C5C /* extension Date.swift in Sources */,
 				DA7DE963243F39CE00407C5C /* extension UIView.swift in Sources */,
+				DA7DE9C22447563400407C5C /* extension String.swift in Sources */,
 				DA7DE9B32445F1FE00407C5C /* ScheduleUnitView.swift in Sources */,
 				DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */,
 				DA7DE99F2444474400407C5C /* StepperUnitView.swift in Sources */,
@@ -279,8 +290,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				DA77DB4A243EFEE000B0B8A1 /* Base */,
+				DA7DE9BA24474B7300407C5C /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DA7DE9BF24474BD600407C5C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA7DE9BE24474BD600407C5C /* en */,
+				DA7DE9C024474BD800407C5C /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -350,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
