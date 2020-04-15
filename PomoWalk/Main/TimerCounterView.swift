@@ -16,7 +16,11 @@ class TimerCounterView: UIView {
         }
     }
     
-    var type: CounterType = .work
+    var type: ActivityType = .work {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
 
     
     var counterColor: UIColor {
@@ -31,8 +35,6 @@ class TimerCounterView: UIView {
     var traceColor: UIColor {
         return counterColor.withAlphaComponent(0.3)
     }
-    
-    
     
     override func draw(_ rect: CGRect) {
         let arcWidth: CGFloat = bounds.width / 6

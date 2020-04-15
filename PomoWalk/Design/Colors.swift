@@ -19,7 +19,7 @@ extension UIColor {
 
 extension UIColor {
     
-    static let colorScheme: ColorScheme = ColorScheme(rawValue: Settings.defaults.value(forKey: Settings.colorSchemeKey) as? Int ?? 0) ?? ColorScheme.bright
+    static let colorScheme: ColorScheme = ColorScheme(rawValue: Settings.colorScheme) ?? ColorScheme.bright
     
     static var backgroundColor: UIColor {
         switch colorScheme {

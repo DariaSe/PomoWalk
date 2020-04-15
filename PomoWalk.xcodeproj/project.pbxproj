@@ -18,11 +18,23 @@
 		DA7DE96D2440A7CC00407C5C /* AnonymousPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE96C2440A7CC00407C5C /* AnonymousPro-Bold.ttf */; };
 		DA7DE96F2440A7F700407C5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE96E2440A7F700407C5C /* Fonts.swift */; };
 		DA7DE9712440C1EC00407C5C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9702440C1EC00407C5C /* Colors.swift */; };
-		DA7DE9752440DB9F00407C5C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9742440DB9F00407C5C /* UserDefaults.swift */; };
 		DA7DE9772440E19900407C5C /* SourceCodePro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE9762440E19900407C5C /* SourceCodePro-Black.ttf */; };
 		DA7DE9792440FFB000407C5C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9782440FFB000407C5C /* RoundButton.swift */; };
 		DA7DE97B2441A67F00407C5C /* extension Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE97A2441A67F00407C5C /* extension Date.swift */; };
 		DA7DE97D2441ED6900407C5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE97C2441ED6900407C5C /* SettingsViewController.swift */; };
+		DA7DE99F2444474400407C5C /* StepperUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE99E2444474400407C5C /* StepperUnitView.swift */; };
+		DA7DE9A22444775300407C5C /* protocol SizeAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9A12444775300407C5C /* protocol SizeAnimatable.swift */; };
+		DA7DE9A424447A5E00407C5C /* LabelStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9A324447A5E00407C5C /* LabelStepperView.swift */; };
+		DA7DE9A724448BD400407C5C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE9A524448BD400407C5C /* Montserrat-SemiBold.ttf */; };
+		DA7DE9A824448BD400407C5C /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE9A624448BD400407C5C /* Montserrat-Bold.ttf */; };
+		DA7DE9AA24448DA200407C5C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9A924448DA200407C5C /* MainTabBarController.swift */; };
+		DA7DE9AC2444953E00407C5C /* BaseSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */; };
+		DA7DE9AE2444A2FD00407C5C /* LabelSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */; };
+		DA7DE9B12445F19000407C5C /* ScheduleSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B02445F19000407C5C /* ScheduleSettingsView.swift */; };
+		DA7DE9B32445F1FE00407C5C /* ScheduleUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */; };
+		DA7DE9B52445F88200407C5C /* ScheduleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */; };
+		DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B62445F8E300407C5C /* BaseSettings.swift */; };
+		DA7DE9B924470BBA00407C5C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B824470BBA00407C5C /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +51,23 @@
 		DA7DE96C2440A7CC00407C5C /* AnonymousPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnonymousPro-Bold.ttf"; sourceTree = "<group>"; };
 		DA7DE96E2440A7F700407C5C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DA7DE9702440C1EC00407C5C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		DA7DE9742440DB9F00407C5C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		DA7DE9762440E19900407C5C /* SourceCodePro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Black.ttf"; sourceTree = "<group>"; };
 		DA7DE9782440FFB000407C5C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		DA7DE97A2441A67F00407C5C /* extension Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension Date.swift"; sourceTree = "<group>"; };
 		DA7DE97C2441ED6900407C5C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DA7DE99E2444474400407C5C /* StepperUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperUnitView.swift; sourceTree = "<group>"; };
+		DA7DE9A12444775300407C5C /* protocol SizeAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "protocol SizeAnimatable.swift"; sourceTree = "<group>"; };
+		DA7DE9A324447A5E00407C5C /* LabelStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStepperView.swift; sourceTree = "<group>"; };
+		DA7DE9A524448BD400407C5C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		DA7DE9A624448BD400407C5C /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		DA7DE9A924448DA200407C5C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettingsView.swift; sourceTree = "<group>"; };
+		DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSwitchView.swift; sourceTree = "<group>"; };
+		DA7DE9B02445F19000407C5C /* ScheduleSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettingsView.swift; sourceTree = "<group>"; };
+		DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleUnitView.swift; sourceTree = "<group>"; };
+		DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettings.swift; sourceTree = "<group>"; };
+		DA7DE9B62445F8E300407C5C /* BaseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettings.swift; sourceTree = "<group>"; };
+		DA7DE9B824470BBA00407C5C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,14 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */,
-				DA77DB52243EFF7500B0B8A1 /* MainViewController.swift */,
+				DA7DE9A924448DA200407C5C /* MainTabBarController.swift */,
+				DA7DE9AF2444ABBB00407C5C /* Main */,
 				DA7DE9802441F9BE00407C5C /* Settings */,
 				DA7DE9782440FFB000407C5C /* RoundButton.swift */,
-				DA7DE96424409AD000407C5C /* TimerView.swift */,
-				DA7DE96824409B6800407C5C /* TimerCounterView.swift */,
 				DA7DE96A2440A20700407C5C /* Screen.swift */,
-				DA7DE962243F39CE00407C5C /* extension UIView.swift */,
-				DA7DE97A2441A67F00407C5C /* extension Date.swift */,
+				DA7DE9A02444772E00407C5C /* Extensions */,
 				DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */,
 				DA77DB49243EFEE000B0B8A1 /* LaunchScreen.storyboard */,
 				DA77DB4C243EFEE000B0B8A1 /* Info.plist */,
@@ -97,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				DA7DE96E2440A7F700407C5C /* Fonts.swift */,
+				DA7DE9A624448BD400407C5C /* Montserrat-Bold.ttf */,
+				DA7DE9A524448BD400407C5C /* Montserrat-SemiBold.ttf */,
 				DA7DE9762440E19900407C5C /* SourceCodePro-Black.ttf */,
 				DA7DE96C2440A7CC00407C5C /* AnonymousPro-Bold.ttf */,
 			);
@@ -115,10 +139,38 @@
 		DA7DE9802441F9BE00407C5C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				DA7DE9742440DB9F00407C5C /* UserDefaults.swift */,
+				DA7DE9B824470BBA00407C5C /* Settings.swift */,
+				DA7DE9B62445F8E300407C5C /* BaseSettings.swift */,
+				DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */,
 				DA7DE97C2441ED6900407C5C /* SettingsViewController.swift */,
+				DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */,
+				DA7DE9B02445F19000407C5C /* ScheduleSettingsView.swift */,
+				DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */,
+				DA7DE9A324447A5E00407C5C /* LabelStepperView.swift */,
+				DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */,
+				DA7DE99E2444474400407C5C /* StepperUnitView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		DA7DE9A02444772E00407C5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA7DE962243F39CE00407C5C /* extension UIView.swift */,
+				DA7DE97A2441A67F00407C5C /* extension Date.swift */,
+				DA7DE9A12444775300407C5C /* protocol SizeAnimatable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DA7DE9AF2444ABBB00407C5C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA77DB52243EFF7500B0B8A1 /* MainViewController.swift */,
+				DA7DE96424409AD000407C5C /* TimerView.swift */,
+				DA7DE96824409B6800407C5C /* TimerCounterView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +233,10 @@
 			files = (
 				DA77DB4B243EFEE000B0B8A1 /* LaunchScreen.storyboard in Resources */,
 				DA77DB48243EFEE000B0B8A1 /* Assets.xcassets in Resources */,
+				DA7DE9A824448BD400407C5C /* Montserrat-Bold.ttf in Resources */,
 				DA7DE9772440E19900407C5C /* SourceCodePro-Black.ttf in Resources */,
 				DA7DE96D2440A7CC00407C5C /* AnonymousPro-Bold.ttf in Resources */,
+				DA7DE9A724448BD400407C5C /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,11 +252,21 @@
 				DA7DE96924409B6800407C5C /* TimerCounterView.swift in Sources */,
 				DA7DE97B2441A67F00407C5C /* extension Date.swift in Sources */,
 				DA7DE963243F39CE00407C5C /* extension UIView.swift in Sources */,
+				DA7DE9B32445F1FE00407C5C /* ScheduleUnitView.swift in Sources */,
 				DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */,
-				DA7DE9752440DB9F00407C5C /* UserDefaults.swift in Sources */,
+				DA7DE99F2444474400407C5C /* StepperUnitView.swift in Sources */,
+				DA7DE9B924470BBA00407C5C /* Settings.swift in Sources */,
+				DA7DE9AC2444953E00407C5C /* BaseSettingsView.swift in Sources */,
+				DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */,
+				DA7DE9A424447A5E00407C5C /* LabelStepperView.swift in Sources */,
+				DA7DE9B52445F88200407C5C /* ScheduleSettings.swift in Sources */,
 				DA7DE9792440FFB000407C5C /* RoundButton.swift in Sources */,
+				DA7DE9AE2444A2FD00407C5C /* LabelSwitchView.swift in Sources */,
+				DA7DE9AA24448DA200407C5C /* MainTabBarController.swift in Sources */,
+				DA7DE9B12445F19000407C5C /* ScheduleSettingsView.swift in Sources */,
 				DA7DE96524409AD000407C5C /* TimerView.swift in Sources */,
 				DA77DB53243EFF7500B0B8A1 /* MainViewController.swift in Sources */,
+				DA7DE9A22444775300407C5C /* protocol SizeAnimatable.swift in Sources */,
 				DA7DE96B2440A20700407C5C /* Screen.swift in Sources */,
 				DA7DE97D2441ED6900407C5C /* SettingsViewController.swift in Sources */,
 			);
