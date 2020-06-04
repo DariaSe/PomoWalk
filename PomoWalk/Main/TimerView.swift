@@ -16,11 +16,11 @@ class TimerView: UIView {
             counter.percentRemaining = 1.0
             label.textColor = activityType == .work ? UIColor.workCounterColor : UIColor.walkCounterColor
             startButton.backgroundColor = activityType == .work ? UIColor.workCounterColor : UIColor.walkCounterColor
-            startButton.setTitle("START", for: .normal)
+            startButton.setTitle(Strings.start, for: .normal)
             timer?.invalidate()
             timer = nil
             walkWorkButton.backgroundColor = activityType == .work ? UIColor.walkCounterColor : UIColor.workCounterColor
-            let walkOrWork = activityType == .work ? "WALK" : "WORK"
+            let walkOrWork = activityType == .work ? Strings.walk : Strings.work
             walkWorkButton.setTitle(walkOrWork, for: .normal)
             let intervalDuration = activityType == .work ? BaseSettings.workIntervalDuration : BaseSettings.walkIntervalDuration
             startInterval = TimeInterval(intervalDuration * 60)
@@ -71,14 +71,13 @@ class TimerView: UIView {
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(counter)
         stackView.addArrangedSubview(walkWorkButton)
-        counter.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        counter.heightAnchor.constraint(equalTo: counter.widthAnchor).isActive = true
+        counter.setWidth(equalTo: self)
+        counter.setEqualHeight()
         startButton.center(in: counter)
-        startButton.widthAnchor.constraint(equalTo: counter.widthAnchor, multiplier: 0.4).isActive = true
-        startButton
-            .heightAnchor.constraint(equalTo: startButton.widthAnchor).isActive = true
-        walkWorkButton.widthAnchor.constraint(equalTo: startButton.widthAnchor).isActive = true
-        walkWorkButton.heightAnchor.constraint(equalTo: walkWorkButton.widthAnchor).isActive = true
+        startButton.setWidth(equalTo: counter, multiplier: 0.4)
+        startButton.setEqualHeight()
+        walkWorkButton.setWidth(equalTo: startButton)
+        walkWorkButton.setEqualHeight()
     }
     
     func initialSetup() {
@@ -92,13 +91,13 @@ class TimerView: UIView {
         counter.backgroundColor = .clear
         
         startButton.backgroundColor = UIColor.workCounterColor
-        startButton.setTitle("START", for: .normal)
+        startButton.setTitle(Strings.start, for: .normal)
         startButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
         startButton.titleLabel?.font = UIFont.buttonsFont
         startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
         walkWorkButton.backgroundColor = UIColor.walkCounterColor
-        walkWorkButton.setTitle("WALK", for: .normal)
+        walkWorkButton.setTitle(Strings.walk, for: .normal)
         walkWorkButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
         walkWorkButton.titleLabel?.font = UIFont.buttonsFont
         walkWorkButton.addTarget(self, action: #selector(walkWorkButtonTapped), for: .touchUpInside)
@@ -114,7 +113,7 @@ class TimerView: UIView {
         else {
             timer?.invalidate()
             timer = nil
-            startButton.setTitle("START", for: .normal)
+            startButton.setTitle(Strings.start, for: .normal)
         }
     }
     
@@ -125,14 +124,14 @@ class TimerView: UIView {
             fireDate = Date().addingTimeInterval(startInterval)
             timer?.tolerance = 0.2
             timer?.fire()
-            startButton.setTitle("STOP", for: .normal)
-            let text = activityType == .work ? "It's time to walk" : "It's time to go back to work!"
+            startButton.setTitle(Strings.stop, for: .normal)
+            let text = activityType == .work ? Strings.goWalk : Strings.goWork
             scheduleNotification(text: text)
         }
         else {
             timer?.invalidate()
             timer = nil
-            startButton.setTitle("START", for: .normal)
+            startButton.setTitle(Strings.start, for: .normal)
             label.text = String(format: "%02i : %02i", Int(startInterval) / 60, 0)
             counter.percentRemaining = 1.0
             fireDate = nil

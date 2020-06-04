@@ -6,8 +6,21 @@
   Copyright © 2020 dariaS. All rights reserved.
 */
 
-// Base Settings
+// Tab bar
+"Timer" = "Таймер";
+"Settings" = "Настройки";
 
+// Mail screen
+"START" = "СТАРТ";
+"STOP" = "СТОП";
+"WORK" = "РАБОТА";
+"WALK" = "ХОДЬБА";
+
+// Notifications
+"It's time to walk!" = "Пора немного размяться!";
+"It's time to go back to work!" = "Пора возвращаться к работе!";
+
+// Base Settings
 "Work for" = "Концентрироваться";
 "minutes" = "мин.";
 "Walk for" = "Ходить";
@@ -17,9 +30,3 @@
 "Signal 1 minute before end" = "Напомнить за минуту до конца";
 "Continue automatically" = "Продолжать автоматически";
 
-// Schedule Settings
-
-"Schedule notifications" = "Запланировать уведомления";
-"From" = "С";
-"To" = "По";
-"Lunch pause" = "Обеденный перерыв";

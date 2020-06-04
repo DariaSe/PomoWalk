@@ -43,11 +43,11 @@ class LabelStepperView: UIView {
     }
     
     func setupLayout() {
-        stackView.pinToActualEdges(of: self)
+        stackView.pinToEdges(to: self)
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
-        stepperUnit.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        stepperUnit.setWidth(equalTo: 70)
         subStackView.axis = .horizontal
         subStackView.spacing = 20
         stackView.addArrangedSubview(firstLabel)

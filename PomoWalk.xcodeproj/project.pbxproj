@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA02F89E24894D5F0087E274 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F89D24894D5F0087E274 /* Strings.swift */; };
 		DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */; };
 		DA77DB48243EFEE000B0B8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */; };
 		DA77DB4B243EFEE000B0B8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77DB49243EFEE000B0B8A1 /* LaunchScreen.storyboard */; };
@@ -30,16 +31,17 @@
 		DA7DE9AA24448DA200407C5C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9A924448DA200407C5C /* MainTabBarController.swift */; };
 		DA7DE9AC2444953E00407C5C /* BaseSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */; };
 		DA7DE9AE2444A2FD00407C5C /* LabelSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */; };
-		DA7DE9B12445F19000407C5C /* ScheduleSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B02445F19000407C5C /* ScheduleSettingsView.swift */; };
 		DA7DE9B32445F1FE00407C5C /* ScheduleUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */; };
-		DA7DE9B52445F88200407C5C /* ScheduleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */; };
 		DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B62445F8E300407C5C /* BaseSettings.swift */; };
 		DA7DE9B924470BBA00407C5C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9B824470BBA00407C5C /* Settings.swift */; };
 		DA7DE9BD24474BD600407C5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE9BF24474BD600407C5C /* Localizable.strings */; };
 		DA7DE9C22447563400407C5C /* extension String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9C12447563400407C5C /* extension String.swift */; };
+		DABCA61324488BC500682368 /* extension Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCA61224488BC500682368 /* extension Calendar.swift */; };
+		DABCA61524488D1400682368 /* WeekDayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCA61424488D1400682368 /* WeekDayPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA02F89D24894D5F0087E274 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		DA77DB3B243EFEDD00B0B8A1 /* PomoWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,15 +67,15 @@
 		DA7DE9A924448DA200407C5C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettingsView.swift; sourceTree = "<group>"; };
 		DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSwitchView.swift; sourceTree = "<group>"; };
-		DA7DE9B02445F19000407C5C /* ScheduleSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettingsView.swift; sourceTree = "<group>"; };
 		DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleUnitView.swift; sourceTree = "<group>"; };
-		DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSettings.swift; sourceTree = "<group>"; };
 		DA7DE9B62445F8E300407C5C /* BaseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettings.swift; sourceTree = "<group>"; };
 		DA7DE9B824470BBA00407C5C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		DA7DE9BA24474B7300407C5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DA7DE9BE24474BD600407C5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7DE9C024474BD800407C5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7DE9C12447563400407C5C /* extension String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension String.swift"; sourceTree = "<group>"; };
+		DABCA61224488BC500682368 /* extension Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension Calendar.swift"; sourceTree = "<group>"; };
+		DABCA61424488D1400682368 /* WeekDayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,6 @@
 		DA77DB32243EFEDD00B0B8A1 = {
 			isa = PBXGroup;
 			children = (
-				DA7DE9BF24474BD600407C5C /* Localizable.strings */,
 				DA7DE9C12447563400407C5C /* extension String.swift */,
 				DA77DB3D243EFEDD00B0B8A1 /* PomoWalk */,
 				DA77DB3C243EFEDD00B0B8A1 /* Products */,
@@ -119,6 +120,8 @@
 				DA77DB49243EFEE000B0B8A1 /* LaunchScreen.storyboard */,
 				DA77DB4C243EFEE000B0B8A1 /* Info.plist */,
 				DA7DE9732440C20800407C5C /* Design */,
+				DA02F89D24894D5F0087E274 /* Strings.swift */,
+				DA7DE9BF24474BD600407C5C /* Localizable.strings */,
 			);
 			path = PomoWalk;
 			sourceTree = "<group>";
@@ -149,10 +152,9 @@
 			children = (
 				DA7DE9B824470BBA00407C5C /* Settings.swift */,
 				DA7DE9B62445F8E300407C5C /* BaseSettings.swift */,
-				DA7DE9B42445F88200407C5C /* ScheduleSettings.swift */,
 				DA7DE97C2441ED6900407C5C /* SettingsViewController.swift */,
 				DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */,
-				DA7DE9B02445F19000407C5C /* ScheduleSettingsView.swift */,
+				DABCA61424488D1400682368 /* WeekDayPickerView.swift */,
 				DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */,
 				DA7DE9A324447A5E00407C5C /* LabelStepperView.swift */,
 				DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */,
@@ -167,6 +169,7 @@
 				DA7DE962243F39CE00407C5C /* extension UIView.swift */,
 				DA7DE97A2441A67F00407C5C /* extension Date.swift */,
 				DA7DE9A12444775300407C5C /* protocol SizeAnimatable.swift */,
+				DABCA61224488BC500682368 /* extension Calendar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,14 +270,15 @@
 				DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */,
 				DA7DE99F2444474400407C5C /* StepperUnitView.swift in Sources */,
 				DA7DE9B924470BBA00407C5C /* Settings.swift in Sources */,
+				DA02F89E24894D5F0087E274 /* Strings.swift in Sources */,
 				DA7DE9AC2444953E00407C5C /* BaseSettingsView.swift in Sources */,
 				DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */,
 				DA7DE9A424447A5E00407C5C /* LabelStepperView.swift in Sources */,
-				DA7DE9B52445F88200407C5C /* ScheduleSettings.swift in Sources */,
 				DA7DE9792440FFB000407C5C /* RoundButton.swift in Sources */,
 				DA7DE9AE2444A2FD00407C5C /* LabelSwitchView.swift in Sources */,
 				DA7DE9AA24448DA200407C5C /* MainTabBarController.swift in Sources */,
-				DA7DE9B12445F19000407C5C /* ScheduleSettingsView.swift in Sources */,
+				DABCA61524488D1400682368 /* WeekDayPickerView.swift in Sources */,
+				DABCA61324488BC500682368 /* extension Calendar.swift in Sources */,
 				DA7DE96524409AD000407C5C /* TimerView.swift in Sources */,
 				DA77DB53243EFF7500B0B8A1 /* MainViewController.swift in Sources */,
 				DA7DE9A22444775300407C5C /* protocol SizeAnimatable.swift in Sources */,

@@ -35,7 +35,6 @@ class Settings {
     
     static func setDefault() {
         BaseSettings.setDefault()
-        ScheduleSettings.setDefault()
         
         
         if defaults.value(forKey: isVibrationOnKey) == nil {

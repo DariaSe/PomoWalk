@@ -13,9 +13,9 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let mainVC = MainViewController()
-        mainVC.tabBarItem = UITabBarItem(title: "Timer", image: UIImage(named: "TimerTabIcon"), tag: 0)
+        mainVC.tabBarItem = UITabBarItem(title: Strings.timer, image: UIImage(named: "TimerTabIcon"), tag: 0)
         let settingsVC = SettingsViewController()
-        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "SettingsTabIcon"), tag: 1)
+        settingsVC.tabBarItem = UITabBarItem(title: Strings.settings, image: UIImage(named: "SettingsTabIcon"), tag: 1)
         self.viewControllers = [mainVC, settingsVC]
         
     }

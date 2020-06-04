@@ -38,14 +38,14 @@ class ScheduleUnitView: UIView {
     }
     
     func setupLayout() {
-        stackView.pinToActualEdges(of: self)
+        stackView.pinToEdges(to: self)
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
         unitsStackView.axis = .horizontal
         unitsStackView.spacing = 20
-        hoursStepperUnit.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        minutesStepperUnit.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        hoursStepperUnit.setWidth(equalTo: 80)
+        minutesStepperUnit.setHeight(equalTo: 80)
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(unitsStackView)
         unitsStackView.addArrangedSubview(hoursStepperUnit)

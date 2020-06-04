@@ -26,10 +26,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundColor
         
-        let width = UIScreen.main.bounds.width * 0.7
-        
         timerView.center(in: view)
-        timerView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        timerView.setWidth(equalTo: view, multiplier: 0.7)
         
         
 //        pedometer.startUpdates(from: Date()) { (data, error) in
