@@ -17,7 +17,9 @@
 "WALK" = "ХОДЬБА";
 
 // Notifications
+"Time's up!" = "Время вышло!";
 "It's time to walk!" = "Пора немного размяться!";
+"Long pause!" = "Большой перерыв!";
 "It's time to go back to work!" = "Пора возвращаться к работе!";
 
 // Base Settings

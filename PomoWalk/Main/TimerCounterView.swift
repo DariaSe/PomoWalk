@@ -27,7 +27,7 @@ class TimerCounterView: UIView {
         switch self.type {
         case .work:
             return UIColor.workCounterColor
-        case .walk:
+        case .walk, .longPause:
             return UIColor.walkCounterColor
         }
     }

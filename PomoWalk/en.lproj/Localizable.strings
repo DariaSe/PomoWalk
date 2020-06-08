@@ -17,7 +17,9 @@
 "WALK" = "WALK";
 
 // Notifications
+"Time's up!" = "Time's up!";
 "It's time to walk!" = "It's time to walk!";
+"Long pause!" = "Long pause!";
 "It's time to go back to work!" = "It's time to go back to work!";
 
 // Base Settings

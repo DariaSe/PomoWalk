@@ -9,18 +9,15 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    
+    let timerCoordinator = TimerCoordinator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainVC = MainViewController()
-        mainVC.tabBarItem = UITabBarItem(title: Strings.timer, image: UIImage(named: "TimerTabIcon"), tag: 0)
+        timerCoordinator.start()
+        timerCoordinator.timerVC.tabBarItem = UITabBarItem(title: Strings.timer, image: UIImage(named: "TimerTabIcon"), tag: 0)
         let settingsVC = SettingsViewController()
         settingsVC.tabBarItem = UITabBarItem(title: Strings.settings, image: UIImage(named: "SettingsTabIcon"), tag: 1)
-        self.viewControllers = [mainVC, settingsVC]
-        
+        self.viewControllers = [timerCoordinator.timerVC, settingsVC]
     }
-    
-
-   
-
 }

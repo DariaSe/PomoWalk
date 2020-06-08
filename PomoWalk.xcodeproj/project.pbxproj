@@ -8,14 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		DA02F89E24894D5F0087E274 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F89D24894D5F0087E274 /* Strings.swift */; };
+		DA02F8A72489665B0087E274 /* space-sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A02489665B0087E274 /* space-sweep.wav */; };
+		DA02F8A82489665B0087E274 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A12489665B0087E274 /* bell.wav */; };
+		DA02F8A92489665B0087E274 /* space-swoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A22489665B0087E274 /* space-swoosh.wav */; };
+		DA02F8AA2489665B0087E274 /* jazzy.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A32489665B0087E274 /* jazzy.wav */; };
+		DA02F8AB2489665B0087E274 /* cymbal.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A42489665B0087E274 /* cymbal.wav */; };
+		DA02F8AC2489665B0087E274 /* notification.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A52489665B0087E274 /* notification.wav */; };
+		DA02F8AD2489665B0087E274 /* opening.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA02F8A62489665B0087E274 /* opening.wav */; };
+		DA02F8AF248A94400087E274 /* m_Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F8AE248A94400087E274 /* m_Interval.swift */; };
+		DA02F8B1248A956C0087E274 /* IntervalsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F8B0248A956C0087E274 /* IntervalsManager.swift */; };
+		DA02F8B3248BCC8F0087E274 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F8B2248BCC8F0087E274 /* NotificationsManager.swift */; };
+		DA02F8B5248BDAB70087E274 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F8B4248BDAB70087E274 /* TimerManager.swift */; };
+		DA02F8B7248BDF3D0087E274 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02F8B6248BDF3D0087E274 /* TimerCoordinator.swift */; };
 		DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */; };
 		DA77DB48243EFEE000B0B8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */; };
 		DA77DB4B243EFEE000B0B8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77DB49243EFEE000B0B8A1 /* LaunchScreen.storyboard */; };
 		DA77DB53243EFF7500B0B8A1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77DB52243EFF7500B0B8A1 /* MainViewController.swift */; };
 		DA7DE963243F39CE00407C5C /* extension UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE962243F39CE00407C5C /* extension UIView.swift */; };
-		DA7DE96524409AD000407C5C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE96424409AD000407C5C /* TimerView.swift */; };
 		DA7DE96924409B6800407C5C /* TimerCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE96824409B6800407C5C /* TimerCounterView.swift */; };
-		DA7DE96B2440A20700407C5C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE96A2440A20700407C5C /* Screen.swift */; };
 		DA7DE96D2440A7CC00407C5C /* AnonymousPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE96C2440A7CC00407C5C /* AnonymousPro-Bold.ttf */; };
 		DA7DE96F2440A7F700407C5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE96E2440A7F700407C5C /* Fonts.swift */; };
 		DA7DE9712440C1EC00407C5C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DE9702440C1EC00407C5C /* Colors.swift */; };
@@ -42,6 +52,18 @@
 
 /* Begin PBXFileReference section */
 		DA02F89D24894D5F0087E274 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		DA02F8A02489665B0087E274 /* space-sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "space-sweep.wav"; sourceTree = "<group>"; };
+		DA02F8A12489665B0087E274 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
+		DA02F8A22489665B0087E274 /* space-swoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "space-swoosh.wav"; sourceTree = "<group>"; };
+		DA02F8A32489665B0087E274 /* jazzy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jazzy.wav; sourceTree = "<group>"; };
+		DA02F8A42489665B0087E274 /* cymbal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cymbal.wav; sourceTree = "<group>"; };
+		DA02F8A52489665B0087E274 /* notification.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification.wav; sourceTree = "<group>"; };
+		DA02F8A62489665B0087E274 /* opening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = opening.wav; sourceTree = "<group>"; };
+		DA02F8AE248A94400087E274 /* m_Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = m_Interval.swift; sourceTree = "<group>"; };
+		DA02F8B0248A956C0087E274 /* IntervalsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalsManager.swift; sourceTree = "<group>"; };
+		DA02F8B2248BCC8F0087E274 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		DA02F8B4248BDAB70087E274 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		DA02F8B6248BDF3D0087E274 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		DA77DB3B243EFEDD00B0B8A1 /* PomoWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,9 +71,7 @@
 		DA77DB4C243EFEE000B0B8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA77DB52243EFF7500B0B8A1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA7DE962243F39CE00407C5C /* extension UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "extension UIView.swift"; sourceTree = "<group>"; };
-		DA7DE96424409AD000407C5C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		DA7DE96824409B6800407C5C /* TimerCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCounterView.swift; sourceTree = "<group>"; };
-		DA7DE96A2440A20700407C5C /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		DA7DE96C2440A7CC00407C5C /* AnonymousPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnonymousPro-Bold.ttf"; sourceTree = "<group>"; };
 		DA7DE96E2440A7F700407C5C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DA7DE9702440C1EC00407C5C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -89,6 +109,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA02F89F2489665B0087E274 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DA02F8A02489665B0087E274 /* space-sweep.wav */,
+				DA02F8A12489665B0087E274 /* bell.wav */,
+				DA02F8A22489665B0087E274 /* space-swoosh.wav */,
+				DA02F8A32489665B0087E274 /* jazzy.wav */,
+				DA02F8A42489665B0087E274 /* cymbal.wav */,
+				DA02F8A52489665B0087E274 /* notification.wav */,
+				DA02F8A62489665B0087E274 /* opening.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		DA77DB32243EFEDD00B0B8A1 = {
 			isa = PBXGroup;
 			children = (
@@ -114,9 +148,12 @@
 				DA7DE9AF2444ABBB00407C5C /* Main */,
 				DA7DE9802441F9BE00407C5C /* Settings */,
 				DA7DE9782440FFB000407C5C /* RoundButton.swift */,
-				DA7DE96A2440A20700407C5C /* Screen.swift */,
+				DA02F8AE248A94400087E274 /* m_Interval.swift */,
+				DA02F8B0248A956C0087E274 /* IntervalsManager.swift */,
+				DA02F8B2248BCC8F0087E274 /* NotificationsManager.swift */,
 				DA7DE9A02444772E00407C5C /* Extensions */,
 				DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */,
+				DA02F89F2489665B0087E274 /* Sounds */,
 				DA77DB49243EFEE000B0B8A1 /* LaunchScreen.storyboard */,
 				DA77DB4C243EFEE000B0B8A1 /* Info.plist */,
 				DA7DE9732440C20800407C5C /* Design */,
@@ -177,8 +214,9 @@
 		DA7DE9AF2444ABBB00407C5C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA02F8B6248BDF3D0087E274 /* TimerCoordinator.swift */,
 				DA77DB52243EFF7500B0B8A1 /* MainViewController.swift */,
-				DA7DE96424409AD000407C5C /* TimerView.swift */,
+				DA02F8B4248BDAB70087E274 /* TimerManager.swift */,
 				DA7DE96824409B6800407C5C /* TimerCounterView.swift */,
 			);
 			path = Main;
@@ -243,12 +281,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA02F8A72489665B0087E274 /* space-sweep.wav in Resources */,
 				DA77DB4B243EFEE000B0B8A1 /* LaunchScreen.storyboard in Resources */,
 				DA77DB48243EFEE000B0B8A1 /* Assets.xcassets in Resources */,
+				DA02F8AD2489665B0087E274 /* opening.wav in Resources */,
+				DA02F8AA2489665B0087E274 /* jazzy.wav in Resources */,
 				DA7DE9A824448BD400407C5C /* Montserrat-Bold.ttf in Resources */,
+				DA02F8A92489665B0087E274 /* space-swoosh.wav in Resources */,
 				DA7DE9BD24474BD600407C5C /* Localizable.strings in Resources */,
 				DA7DE9772440E19900407C5C /* SourceCodePro-Black.ttf in Resources */,
+				DA02F8A82489665B0087E274 /* bell.wav in Resources */,
+				DA02F8AC2489665B0087E274 /* notification.wav in Resources */,
 				DA7DE96D2440A7CC00407C5C /* AnonymousPro-Bold.ttf in Resources */,
+				DA02F8AB2489665B0087E274 /* cymbal.wav in Resources */,
 				DA7DE9A724448BD400407C5C /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA02F8B1248A956C0087E274 /* IntervalsManager.swift in Sources */,
 				DA7DE96F2440A7F700407C5C /* Fonts.swift in Sources */,
 				DA7DE9712440C1EC00407C5C /* Colors.swift in Sources */,
 				DA7DE96924409B6800407C5C /* TimerCounterView.swift in Sources */,
@@ -269,20 +315,22 @@
 				DA7DE9B32445F1FE00407C5C /* ScheduleUnitView.swift in Sources */,
 				DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */,
 				DA7DE99F2444474400407C5C /* StepperUnitView.swift in Sources */,
+				DA02F8B3248BCC8F0087E274 /* NotificationsManager.swift in Sources */,
 				DA7DE9B924470BBA00407C5C /* Settings.swift in Sources */,
 				DA02F89E24894D5F0087E274 /* Strings.swift in Sources */,
 				DA7DE9AC2444953E00407C5C /* BaseSettingsView.swift in Sources */,
+				DA02F8AF248A94400087E274 /* m_Interval.swift in Sources */,
+				DA02F8B5248BDAB70087E274 /* TimerManager.swift in Sources */,
 				DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */,
 				DA7DE9A424447A5E00407C5C /* LabelStepperView.swift in Sources */,
+				DA02F8B7248BDF3D0087E274 /* TimerCoordinator.swift in Sources */,
 				DA7DE9792440FFB000407C5C /* RoundButton.swift in Sources */,
 				DA7DE9AE2444A2FD00407C5C /* LabelSwitchView.swift in Sources */,
 				DA7DE9AA24448DA200407C5C /* MainTabBarController.swift in Sources */,
 				DABCA61524488D1400682368 /* WeekDayPickerView.swift in Sources */,
 				DABCA61324488BC500682368 /* extension Calendar.swift in Sources */,
-				DA7DE96524409AD000407C5C /* TimerView.swift in Sources */,
 				DA77DB53243EFF7500B0B8A1 /* MainViewController.swift in Sources */,
 				DA7DE9A22444775300407C5C /* protocol SizeAnimatable.swift in Sources */,
-				DA7DE96B2440A20700407C5C /* Screen.swift in Sources */,
 				DA7DE97D2441ED6900407C5C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

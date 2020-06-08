@@ -22,9 +22,9 @@ class SettingsViewController: UIViewController {
     }
     
     func setupLayout() {
-        scrollView.pinToEdges(to: view)
-        stackView.pinToEdges(to: scrollView, constant: 20)
-        stackView.setWidth(equalTo: scrollView, multiplier: -40)
+        scrollView.pinToLayoutMargins(to: view)
+        stackView.pinToEdges(to: scrollView)
+        stackView.setWidth(equalTo: scrollView)
         stackView.axis = .vertical
         stackView.addArrangedSubview(baseSettingsView)
     }

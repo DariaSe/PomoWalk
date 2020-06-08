@@ -21,7 +21,9 @@ struct Strings {
     static let stop = "STOP".localized
     
     // Notification
+    static let timeIsUp = "Time's up!".localized
     static let goWalk = "It's time to walk!".localized
+    static let goLongPause = "Long pause!".localized
     static let goWork = "It's time to go back to work!".localized
     
     // Settings
