@@ -19,15 +19,18 @@ class MainViewController: UIViewController {
     var activityType: ActivityType = .work {
         didSet {
             counter.type = activityType
-            
-            timerLabel.textColor = activityType == .work ? UIColor.workCounterColor : UIColor.walkCounterColor
-            
-            startStopButton.backgroundColor = activityType == .work ? UIColor.workCounterColor : UIColor.walkCounterColor
-            
-            
-            walkWorkButton.backgroundColor = activityType == .work ? UIColor.walkCounterColor : UIColor.workCounterColor
-            let walkOrWork = activityType == .work ? Strings.walk : Strings.work
-            walkWorkButton.setTitle(walkOrWork, for: .normal)
+            switch activityType {
+            case .work:
+                timerLabel.textColor = UIColor.workCounterColor
+                startStopButton.backgroundColor = UIColor.workCounterColor
+                walkWorkButton.backgroundColor = UIColor.walkCounterColor
+                walkWorkButton.setTitle(Strings.walk, for: .normal)
+            case .walk, .longPause:
+                timerLabel.textColor = UIColor.walkCounterColor
+                startStopButton.backgroundColor = UIColor.walkCounterColor
+                walkWorkButton.backgroundColor = UIColor.workCounterColor
+                walkWorkButton.setTitle(Strings.work, for: .normal)
+            }
         }
     }
     
@@ -55,12 +58,7 @@ class MainViewController: UIViewController {
     let startStopButton = RoundButton()
     
     let walkWorkButton = RoundButton()
-    
-    
-    var timer: Timer?
-    
-    var fireDate: Date?
-    var startInterval: TimeInterval = 0
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,16 +96,14 @@ class MainViewController: UIViewController {
     }
     
     func initialSetup() {
-       
+        
         timerLabel.textAlignment = .center
         timerLabel.font = UIFont.timerFont
-        timerLabel.textColor = UIColor.workCounterColor
         
         counter.backgroundColor = .clear
         
         startStopButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
         startStopButton.titleLabel?.font = UIFont.buttonsFont
-        startStopButton.setTitle(Strings.start, for: .normal)
         startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
         
         walkWorkButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
@@ -115,60 +111,15 @@ class MainViewController: UIViewController {
         walkWorkButton.addTarget(self, action: #selector(walkWorkButtonTapped), for: .touchUpInside)
     }
     
-    @objc func updateCounter() {
-        guard let fireDate = fireDate else { return }
-        let remainingTimeInterval = (fireDate - Date()).rounded()
-        counter.percentRemaining = CGFloat(remainingTimeInterval / startInterval)
-        timerLabel.text = remainingTimeInterval.timerString
-        if remainingTimeInterval <= 0 {
-            timer?.invalidate()
-            timer = nil
-            startStopButton.setTitle(Strings.start, for: .normal)
-        }
-    }
     
     @objc func startStopButtonTapped() {
         startStopButton.animate(scale:1.1)
-        if timer == nil {
-            // Create and start timer
-            coordinator?.startTimer()
-            startStopButton.setTitle(Strings.stop, for: .normal)
-            
-            timer = Timer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-            RunLoop.current.add(timer!, forMode: .common)
-            fireDate = Date().addingTimeInterval(startInterval)
-            timer?.tolerance = 0.2
-            timer?.fire()
-        }
-        else {
-            // Stop timer and clean up
-            coordinator?.stopTimer()
-            startStopButton.setTitle(Strings.start, for: .normal)
-            
-            timer?.invalidate()
-            timer = nil
-            timerLabel.text = String(format: "%02i : %02i", Int(startInterval) / 60, 0)
-            counter.percentRemaining = 1.0
-            fireDate = nil
-            Interval.saveToFile(intervals: [])
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        }
+        coordinator?.startOrStopTimer()
     }
     
     @objc func walkWorkButtonTapped() {
         walkWorkButton.animate(scale: 1.1)
-        coordinator?.switchActivityType(currentType: activityType)
-        
-        if activityType == .work {
-            activityType = .walk
-        }
-        else {
-            activityType = .work
-        }
-        Interval.saveToFile(intervals: [])
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        fireDate = nil
-        
+        coordinator?.alertSwitchActivityType(currentType: activityType)
     }
     
     func updateUI(timeString: String, percentRemaining: CGFloat) {

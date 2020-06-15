@@ -22,7 +22,7 @@ class NotificationsManager {
         }
     }
     
-    func schedulePrereminder(for interval: Interval, index: Int) {
+    private func schedulePrereminder(for interval: Interval, index: Int) {
         let content = UNMutableNotificationContent()
         content.sound = UNNotificationSound.init(named: UNNotificationSoundName("bell.wav"))
         let prereminderFireDate = interval.endDate - 60
@@ -38,7 +38,7 @@ class NotificationsManager {
         }
     }
     
-    func scheduleNotification(for interval: Interval, index: Int) {
+    private func scheduleNotification(for interval: Interval, index: Int) {
         let activityType = ActivityType(rawValue: interval.activityType)!
         var text: String
         switch activityType {

@@ -16,6 +16,16 @@
 "WORK" = "WORK";
 "WALK" = "WALK";
 
+"Stop the timer?" = "Stop the timer?";
+
+"Switch to"  = "Switch to ";
+"work?" = "work?";
+"walk?" = "walk?";
+
+"Yes" = "Yes";
+"No" = "No";
+
+
 // Notifications
 "Time's up!" = "Time's up!";
 "It's time to walk!" = "It's time to walk!";

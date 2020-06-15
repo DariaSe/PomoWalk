@@ -19,5 +19,6 @@ class MainTabBarController: UITabBarController {
         let settingsVC = SettingsViewController()
         settingsVC.tabBarItem = UITabBarItem(title: Strings.settings, image: UIImage(named: "SettingsTabIcon"), tag: 1)
         self.viewControllers = [timerCoordinator.timerVC, settingsVC]
+        tabBar.isTranslucent = true
     }
 }

@@ -45,16 +45,16 @@ class BaseSettings {
     
     // MARK: - Keys
     
-    private static let workIntervalDurationKey = "workIntervalDuration"
-    private static let walkIntervalDurationKey = "walkIntervalDuration"
+    static let workIntervalDurationKey = "workIntervalDuration"
+    static let walkIntervalDurationKey = "walkIntervalDuration"
     
-    private static let isLongPausePlannedKey = "isLongPausePlanned"
-    private static let longPauseDurationKey = "longPauseDuration"
-    private static let longPauseAfterKey = "longPauseAfter"
+    static let isLongPausePlannedKey = "isLongPausePlanned"
+    static let longPauseDurationKey = "longPauseDuration"
+    static let longPauseAfterKey = "longPauseAfter"
     
-    private static let isPrereminderSetKey = "isPrereminderSet"
+    static let isPrereminderSetKey = "isPrereminderSet"
     
-    private static let isAutoContinuedKey = "isAutoContinued"
+    static let isAutoContinuedKey = "isAutoContinued"
     
     // MARK: - Setting default values
     

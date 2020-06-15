@@ -28,6 +28,19 @@ struct Interval: Codable {
         }
     }
     
+    static func current() -> Interval? {
+        if let intervals = Interval.loadFromFile(),
+            !intervals.isEmpty,
+            let currentInterval = intervals
+                .filter({($0.startDate < (Date() + 1))&&($0.endDate > Date())})
+                .first {
+            return currentInterval
+        }
+        else {
+            return nil
+        }
+    }
+    
     // MARK: - Coding and encoding
     
     static var documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

@@ -58,16 +58,21 @@ class BaseSettingsView: UIView {
     func initialSetup() {
         workDurationView.firstText = Strings.workFor
         workDurationView.secondText = Strings.minutes
-        workDurationView.stepperUnit.minValue = 15
+        #warning("Change after")
+        workDurationView.stepperUnit.minValue = 2
+//        workDurationView.stepperUnit.minValue = 15
         workDurationView.stepperUnit.maxValue = 60
-        workDurationView.stepperUnit.step = 5
+        workDurationView.stepperUnit.step = 1
+//        workDurationView.stepperUnit.step = 5
         workDurationView.stepperUnit.value = BaseSettings.workIntervalDuration
         workDurationView.stepperUnit.valueSet = { value in
             BaseSettings.workIntervalDuration = value
         }
         walkDurationView.firstText = Strings.walkFor
         walkDurationView.secondText = Strings.minutes
-        walkDurationView.stepperUnit.minValue = 2
+        #warning("Change after")
+        walkDurationView.stepperUnit.minValue = 1
+//        walkDurationView.stepperUnit.minValue = 2
         walkDurationView.stepperUnit.maxValue = 10
         walkDurationView.stepperUnit.alwaysShowsTwoDigits = false
         walkDurationView.stepperUnit.value = BaseSettings.walkIntervalDuration

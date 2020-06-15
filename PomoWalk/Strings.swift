@@ -20,6 +20,15 @@ struct Strings {
     static let start = "START".localized
     static let stop = "STOP".localized
     
+    static let stopQuestion = "Stop the timer?".localized
+    
+    static let switchActivityQuestion = "Switch to ".localized
+    static let switchToWork = "work?".localized
+    static let switchToWalk = "walk?".localized
+    
+    static let yes = "Yes".localized
+    static let no = "No".localized
+    
     // Notification
     static let timeIsUp = "Time's up!".localized
     static let goWalk = "It's time to walk!".localized
