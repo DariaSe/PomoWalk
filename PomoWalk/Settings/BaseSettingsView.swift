@@ -41,14 +41,15 @@ class BaseSettingsView: UIView {
     func setupLayout() {
         stackView.pinToEdges(to: self)
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 16
         stackView.distribution = .equalSpacing
         longPauseStackView.axis = .vertical
         stackView.addArrangedSubview(workDurationView)
+        workDurationView.setWidth(equalTo: stackView)
         stackView.addArrangedSubview(walkDurationView)
         stackView.addArrangedSubview(longPauseSwitchView)
         stackView.addArrangedSubview(longPauseContainerView)
-        longPauseStackView.constrainToEdges(of: longPauseContainerView, leading: 40, trailing: 0, top: 0, bottom: 0)
+        longPauseStackView.constrainToEdges(of: longPauseContainerView, leading: 30, trailing: 0, top: 0, bottom: 0)
         longPauseStackView.addArrangedSubview(longPauseDurationView)
         longPauseStackView.addArrangedSubview(longPausePeriodsView)
         stackView.addArrangedSubview(isPrereminderSetView)
@@ -90,7 +91,7 @@ class BaseSettingsView: UIView {
             longPauseDurationView.isHidden = true
             longPausePeriodsView.isHidden = true
         }
-        longPauseDurationView.firstText = ""
+        longPauseDurationView.firstText = Strings.duration
         longPauseDurationView.secondText = Strings.minutes
         longPauseDurationView.stepperUnit.minValue = 5
         longPauseDurationView.stepperUnit.maxValue = 20
@@ -118,5 +119,15 @@ class BaseSettingsView: UIView {
         continueAutomaticallyView.valueSet = { bool in
             BaseSettings.isAutoContinued = bool
         }
+    }
+    
+    func setupColors() {
+        workDurationView.setupColors()
+        walkDurationView.setupColors()
+        longPauseSwitchView.setupColors()
+        longPauseDurationView.setupColors()
+        longPausePeriodsView.setupColors()
+        isPrereminderSetView.setupColors()
+        continueAutomaticallyView.setupColors()
     }
 }

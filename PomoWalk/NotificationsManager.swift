@@ -41,14 +41,19 @@ class NotificationsManager {
     private func scheduleNotification(for interval: Interval, index: Int) {
         let activityType = ActivityType(rawValue: interval.activityType)!
         var text: String
+        var soundName: String
         switch activityType {
-        case .work: text = Strings.goWalk
-        case .walk, .longPause: text = Strings.goWork
+        case .work:
+            text = Strings.goWalk
+            soundName = SoundColorSettings.workEndSound + ".wav"
+        case .walk, .longPause:
+            text = Strings.goWork
+            soundName = SoundColorSettings.walkEndSound + ".wav"
         }
         let content = UNMutableNotificationContent()
         content.title = Strings.timeIsUp
         content.body = text
-        content.sound = UNNotificationSound.init(named: UNNotificationSoundName("jazzy.wav"))
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(soundName))
         let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: interval.endDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let identifier = "Notification\(index)"

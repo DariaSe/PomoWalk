@@ -9,27 +9,27 @@
 import UIKit
 import CoreMotion
 
-
 class MainViewController: UIViewController {
     
     weak var coordinator: TimerCoordinator?
     
-    //    let pedometer = CMPedometer()
-    
     var activityType: ActivityType = .work {
         didSet {
             counter.type = activityType
+            totalStepsLabel.textColor = UIColor.walkCounterColor.withAlphaComponent(0.8)
             switch activityType {
             case .work:
                 timerLabel.textColor = UIColor.workCounterColor
                 startStopButton.backgroundColor = UIColor.workCounterColor
                 walkWorkButton.backgroundColor = UIColor.walkCounterColor
                 walkWorkButton.setTitle(Strings.walk, for: .normal)
+                currentStepsLabel.textColor = UIColor.clear
             case .walk, .longPause:
                 timerLabel.textColor = UIColor.walkCounterColor
                 startStopButton.backgroundColor = UIColor.walkCounterColor
                 walkWorkButton.backgroundColor = UIColor.workCounterColor
                 walkWorkButton.setTitle(Strings.work, for: .normal)
+                currentStepsLabel.textColor = UIColor.walkCounterColor
             }
         }
     }
@@ -58,7 +58,9 @@ class MainViewController: UIViewController {
     let startStopButton = RoundButton()
     
     let walkWorkButton = RoundButton()
-  
+   
+    let currentStepsLabel = UILabel()
+    let totalStepsLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,12 +71,7 @@ class MainViewController: UIViewController {
         setupLayout()
         initialSetup()
         
-        //        pedometer.startUpdates(from: Date()) { (data, error) in
-        //            guard let data = data, error == nil else { return }
-        //            DispatchQueue.main.async {
-        //                self.label.text = String(Int(truncating: data.numberOfSteps))
-        //            }
-        //        }
+        UserDefaults.standard.addObserver(self, forKeyPath: SoundColorSettings.colorSchemeKey, options: .new, context: nil)
     }
     
     func setupLayout() {
@@ -93,6 +90,16 @@ class MainViewController: UIViewController {
         startStopButton.setEqualHeight()
         walkWorkButton.setWidth(equalTo: startStopButton)
         walkWorkButton.setEqualHeight()
+        
+        view.addSubview(currentStepsLabel)
+        currentStepsLabel.translatesAutoresizingMaskIntoConstraints = false
+        currentStepsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        currentStepsLabel.bottomAnchor.constraint(equalTo: timerLabel.topAnchor, constant: -10).isActive = true
+        
+        view.addSubview(totalStepsLabel)
+        totalStepsLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalStepsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        totalStepsLabel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     func initialSetup() {
@@ -109,6 +116,16 @@ class MainViewController: UIViewController {
         walkWorkButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
         walkWorkButton.titleLabel?.font = UIFont.buttonsFont
         walkWorkButton.addTarget(self, action: #selector(walkWorkButtonTapped), for: .touchUpInside)
+        
+        currentStepsLabel.font = UIFont.stepperUnitFont
+        currentStepsLabel.text = Strings.steps + "0"
+        
+        totalStepsLabel.font = UIFont.settingsTextFont
+    }
+    
+    func setupStepsLabels(current: Int, total: Int) {
+        currentStepsLabel.text = String(current)
+        totalStepsLabel.text = String(total)
     }
     
     
@@ -125,5 +142,16 @@ class MainViewController: UIViewController {
     func updateUI(timeString: String, percentRemaining: CGFloat) {
         timerLabel.text = timeString
         counter.percentRemaining = percentRemaining
+    }
+}
+
+// UserDefaults Observer
+extension MainViewController {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == SoundColorSettings.colorSchemeKey {
+            view.backgroundColor = UIColor.backgroundColor
+            let sameType = activityType
+            activityType = sameType
+        }
     }
 }

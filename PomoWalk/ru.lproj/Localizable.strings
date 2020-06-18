@@ -25,19 +25,31 @@
 "Yes" = "Да";
 "No" = "Нет";
 
+"Steps: " = "Шаги: ";
+"Total steps today: " = "Всего шагов за сегодня: ";
+
+
 // Notifications
 "Time's up!" = "Время вышло!";
-"It's time to walk!" = "Пора немного размяться!";
+"Grab your phone and walk!" = "Возьми телефон и пройдись!";
 "Long pause!" = "Большой перерыв!";
 "It's time to go back to work!" = "Пора возвращаться к работе!";
 
 // Base Settings
-"Work for" = "Концентрироваться";
+"(Сurrent timer will be stopped on settings change)" = "(При смене настроек текущий таймер будет остановлен)";
+"Work for" = "Работать";
 "minutes" = "мин.";
 "Walk for" = "Ходить";
 "Long pause" = "Длинный перерыв";
+"duration" = "длительность";
 "after" = "после";
 "work intervals" = "рабочих интервалов";
 "Signal 1 minute before end" = "Напомнить за минуту до конца";
 "Continue automatically" = "Продолжать автоматически";
+
+"Work interval\nend signal" = "Сигнал об окончании\nрабочего интервала";
+"Walk interval\nend signal" = "Сигнал об окончании\nперерыва";
+"Vibration" = "Вибрация";
+
+"Color scheme" = "Цветовая схема";
 

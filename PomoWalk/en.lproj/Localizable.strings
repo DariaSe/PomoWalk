@@ -25,20 +25,31 @@
 "Yes" = "Yes";
 "No" = "No";
 
+"Steps: " = "Steps: ";
+"Total steps today: " = "Total steps today: ";
+
 
 // Notifications
 "Time's up!" = "Time's up!";
-"It's time to walk!" = "It's time to walk!";
+"Grab your phone and walk!" = "Grab your phone and walk!";
 "Long pause!" = "Long pause!";
 "It's time to go back to work!" = "It's time to go back to work!";
 
 // Base Settings
+"(Сurrent timer will be stopped on settings change)" = "(Сurrent timer will be stopped on settings change)";
 "Work for" = "Work for";
 "minutes" = "minutes";
 "Walk for" = "Walk for";
 "Long pause" = "Long pause";
+"duration" = "duration";
 "after" = "after";
 "work intervals" = "work intervals";
 "Signal 1 minute before end" = "Signal 1 minute before end";
 "Continue automatically" = "Continue automatically";
+
+"Work interval\nend signal" = "Work interval\nend signal";
+"Walk interval\nend signal" = "Walk interval\nend signal";
+"Vibration" = "Vibration";
+
+"Color scheme" = "Color scheme";
 

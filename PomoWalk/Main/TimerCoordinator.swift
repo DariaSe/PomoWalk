@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreMotion
 
 class TimerCoordinator: NSObject {
     
     let timerVC = MainViewController()
     let timerManager = TimerManager()
     let notificationsManager = NotificationsManager()
+    
+    let pedometer = CMPedometer()
     
     var fireDate: Date?
     var startTimeInterval: TimeInterval = 0 {
@@ -31,18 +34,33 @@ class TimerCoordinator: NSObject {
     func start() {
         timerVC.coordinator = self
         timerManager.delegate = self
-        if let interval = Interval.current() {
-            fireDate = interval.endDate
-            startTimeInterval = interval.duration
-            activityType = ActivityType(rawValue: interval.activityType)!
-            timerManager.startTimer()
-            timerVC.isTimerRunning = true
+        showTotalSteps()
+        if let intervals = Interval.loadAllFromFile(), !intervals.isEmpty {
+            if let currentInterval = intervals
+                .filter({($0.startDate < (Date() + 1))&&($0.endDate > Date())}).first {
+                fireDate = currentInterval.endDate
+                startTimeInterval = currentInterval.duration
+                activityType = ActivityType(rawValue: currentInterval.activityType)!
+                timerManager.startTimer()
+                timerVC.isTimerRunning = true
+            }
+            else {
+                setDefaultUI()
+                Interval.filterAndSaveFinished(from: intervals)
+            }
         }
         else {
             setDefaultUI()
         }
+        UserDefaults.standard.addObserver(self, forKeyPath: BaseSettings.workIntervalDurationKey, options: .new, context: nil)
+        UserDefaults.standard.addObserver(self, forKeyPath: BaseSettings.walkIntervalDurationKey, options: .new, context: nil)
     }
-   
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        stopTimer()
+        setDefaultUI()
+    }
+    
     func setDefaultUI() {
         activityType = .work
         let workDuration = BaseSettings.workIntervalDuration
@@ -64,6 +82,8 @@ class TimerCoordinator: NSObject {
         timerManager.startTimer()
         timerVC.isTimerRunning = true
         notificationsManager.scheduleNotifications(startingWith: activityType)
+        
+        showCurrentSteps()
     }
     
     func alertStop() {
@@ -78,15 +98,20 @@ class TimerCoordinator: NSObject {
     }
     
     func stopTimer() {
+        if let intervals = Interval.loadAllFromFile() {
+            Interval.filterAndSaveFinished(from: intervals)
+        }
         timerManager.stopTimer()
         fireDate = nil
         timerVC.isTimerRunning = false
         let timerString = startTimeInterval.timerString
         timerVC.updateUI(timeString: timerString, percentRemaining: 1.0)
-        Interval.saveToFile(intervals: [])
+        Interval.saveAllToFile(intervals: [])
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        pedometer.stopUpdates()
     }
-   
+    
     func alertSwitchActivityType(currentType: ActivityType) {
         if timerManager.timer != nil {
             var walkOrWork: String
@@ -120,7 +145,7 @@ class TimerCoordinator: NSObject {
             let workDuration = BaseSettings.workIntervalDuration
             startTimeInterval = TimeInterval(workDuration * 60)
         }
-        Interval.saveToFile(intervals: [])
+        Interval.saveAllToFile(intervals: [])
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
@@ -130,6 +155,29 @@ class TimerCoordinator: NSObject {
             startTimeInterval = interval.duration
             activityType = ActivityType(rawValue: interval.activityType)!
             timerManager.startTimer()
+        }
+    }
+    
+    func showCurrentSteps() {
+        if activityType != .work, CMPedometer.isStepCountingAvailable() {
+            pedometer.startUpdates(from: Date()) { [unowned self] (data, error) in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async {
+                    self.timerVC.currentStepsLabel.text = Strings.steps + String(Int(truncating: data.numberOfSteps))
+                    self.showTotalSteps()
+                }
+            }
+        }
+    }
+    
+    func showTotalSteps() {
+        guard CMPedometer.isStepCountingAvailable() else { return }
+        let calendar = Calendar.current
+        pedometer.queryPedometerData(from: calendar.startOfDay(for: Date()), to: Date()) { [unowned self] (data, error) in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async {
+                self.timerVC.totalStepsLabel.text = Strings.stepsToday + String(Int(truncating: data.numberOfSteps))
+            }
         }
     }
 }

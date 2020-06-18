@@ -104,4 +104,10 @@ class StepperUnitView: UIView {
         leftButton.animate(scale: 1.2)
         valueSet?(value)
     }
+    
+    func setupColors() {
+        label.textColor = UIColor.walkCounterColor
+        leftButton.tintColor = UIColor.walkCounterColor
+        rightButton.tintColor = UIColor.walkCounterColor
+    }
 }

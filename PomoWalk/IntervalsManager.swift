@@ -53,7 +53,7 @@ class IntervalsManager {
             let interval = createInterval(startingWith: startDate, type: type)
             intervals.append(interval)
         }
-        Interval.saveToFile(intervals: intervals)
+        Interval.saveAllToFile(intervals: intervals)
         return intervals
     }
     

@@ -1,27 +1,33 @@
 //
-//  LabelSwitchView.swift
+//  LabelButtonView.swift
 //  PomoWalk
 //
-//  Created by Дарья Селезнёва on 13.04.2020.
+//  Created by Дарья Селезнёва on 15.06.2020.
 //  Copyright © 2020 dariaS. All rights reserved.
 //
 
 import UIKit
 
-class LabelSwitchView: UIView {
-    
-    var text: String = "" {
+class LabelButtonView: UIView {
+
+   var text: String = "" {
         didSet {
             label.text = text
+        }
+    }
+    
+    var buttonTitle: String = "" {
+        didSet {
+            button.setTitle(buttonTitle + " " + "\u{25BC}", for: .normal)
         }
     }
     
     let stackView = UIStackView()
     
     let label = UILabel()
-    let switchh = UISwitch()
+    let button = UIButton()
     
-    var valueSet: ((Bool) -> Void)?
+    var buttonPressed: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,29 +49,26 @@ class LabelSwitchView: UIView {
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
         stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(switchh)
+        stackView.addArrangedSubview(button)
     }
     
     func initialSetup() {
         label.font = UIFont.settingsTextFont
         label.textColor = UIColor.textColor
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
         
-        switchh.onTintColor = UIColor.walkCounterColor.withAlphaComponent(0.4)
-        switchh.thumbTintColor = UIColor.workCounterColor
-        switchh.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+        button.titleLabel?.font = UIFont.stepperUnitFont
+        button.setTitleColor(UIColor.walkCounterColor, for: .normal)
+        button.addTarget(self, action: #selector(viewButtonPressed), for: .touchUpInside)
     }
     
-    @objc func valueChanged() {
-        valueSet?(switchh.isOn)
+    @objc func viewButtonPressed() {
+        buttonPressed?()
     }
     
     func setupColors() {
         label.textColor = UIColor.textColor
-        switchh.onTintColor = UIColor.walkCounterColor.withAlphaComponent(0.6)
-        switchh.thumbTintColor = UIColor.workCounterColor
+        button.setTitleColor(UIColor.walkCounterColor, for: .normal)
     }
-    
 }

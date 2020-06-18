@@ -29,7 +29,7 @@ struct Interval: Codable {
     }
     
     static func current() -> Interval? {
-        if let intervals = Interval.loadFromFile(),
+        if let intervals = Interval.loadAllFromFile(),
             !intervals.isEmpty,
             let currentInterval = intervals
                 .filter({($0.startDate < (Date() + 1))&&($0.endDate > Date())})
@@ -43,18 +43,42 @@ struct Interval: Codable {
     
     // MARK: - Coding and encoding
     
-    static var documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static var ArchiveURL = documentsDirectory.appendingPathComponent("intervals").appendingPathExtension("plist")
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentsDirectory.appendingPathComponent("intervals").appendingPathExtension("plist")
+    static let finishedArchiveURL = documentsDirectory.appendingPathComponent("finishedIntervals").appendingPathExtension("plist")
     
-    static func saveToFile(intervals: [Interval]) {
+    static func saveAllToFile(intervals: [Interval]) {
         let propertyListEncoder = PropertyListEncoder()
         let encodedIntervals = try? propertyListEncoder.encode(intervals)
-        try? encodedIntervals?.write(to: ArchiveURL, options: .noFileProtection)
+        try? encodedIntervals?.write(to: archiveURL, options: .noFileProtection)
     }
     
-    static func loadFromFile() -> [Interval]? {
+    static func saveFinishedToFile(intervals: [Interval]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedIntervals = try? propertyListEncoder.encode(intervals)
+        try? encodedIntervals?.write(to: finishedArchiveURL, options: .noFileProtection)
+    }
+    
+    static func loadAllFromFile() -> [Interval]? {
         let propertyListDecoder = PropertyListDecoder()
-        guard let retrievedIntervalsData = try? Data(contentsOf: ArchiveURL) else { return nil }
+        guard let retrievedIntervalsData = try? Data(contentsOf: archiveURL) else { return nil }
         return try? propertyListDecoder.decode(Array<Interval>.self, from: retrievedIntervalsData)
+    }
+    
+    static func loadFinishedFromFile() -> [Interval]? {
+        let propertyListDecoder = PropertyListDecoder()
+        guard let retrievedIntervalsData = try? Data(contentsOf: finishedArchiveURL) else { return nil }
+        return try? propertyListDecoder.decode(Array<Interval>.self, from: retrievedIntervalsData)
+    }
+    
+    static func filterAndSaveFinished(from intervals: [Interval]) {
+        let finishedIntervals = intervals.filter { ($0.endDate < Date()) }
+        if var savedFinished = Interval.loadFinishedFromFile() {
+            savedFinished.append(contentsOf: finishedIntervals)
+            Interval.saveFinishedToFile(intervals: savedFinished)
+        }
+        else {
+            Interval.saveFinishedToFile(intervals: finishedIntervals)
+        }
     }
 }

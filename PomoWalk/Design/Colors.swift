@@ -19,55 +19,65 @@ extension UIColor {
 
 extension UIColor {
     
-    static let colorScheme: ColorScheme = ColorScheme(rawValue: Settings.colorScheme) ?? ColorScheme.bright
+    static var colorScheme: ColorScheme { ColorScheme(rawValue: SoundColorSettings.colorScheme) ?? ColorScheme.lemonade
+    }
     
     static var backgroundColor: UIColor {
         switch colorScheme {
-        case .bright:
+        case .lemonade:
             return UIColor(netHex: 0xF2E97B)
-        case .dark:
+        case .nature:
             return UIColor(netHex: 0x38362E)
-        case .purple:
+        case .blueberry:
             return UIColor(netHex: 0x372948)
+        case .frozen:
+            return UIColor(netHex: 0x9DC6E3)
         }
     }
     
     static var textColor: UIColor {
         switch colorScheme {
-        case .bright:
+        case .lemonade:
             return UIColor(netHex: 0xD37348)
-        case .dark:
+        case .nature:
             return UIColor(netHex: 0xB2572F)
-        case .purple:
+        case .blueberry:
             return UIColor(netHex: 0x8D457C)
+            case .frozen:
+            return UIColor(netHex: 0x9875A5)
         }
     }
     
     static var workCounterColor: UIColor {
         switch colorScheme {
-        case .bright:
+        case .lemonade:
             return UIColor(netHex: 0xD37348)
-        case .dark:
+        case .nature:
             return UIColor(netHex: 0xB2572F)
-        case .purple:
+        case .blueberry:
             return UIColor(netHex: 0x8D457C)
+            case .frozen:
+            return UIColor(netHex: 0x9875A5)
         }
     }
     
     static var walkCounterColor: UIColor {
         switch colorScheme {
-        case .bright:
+        case .lemonade:
             return UIColor(netHex: 0x83B441)
-        case .dark:
+        case .nature:
             return UIColor(netHex: 0x5B7432)
-        case .purple:
+        case .blueberry:
             return UIColor(netHex: 0x497774)
+            case .frozen:
+            return UIColor(netHex: 0x4191B4)
         }
     }
 }
 
 enum ColorScheme: Int {
-    case bright
-    case dark
-    case purple
+    case lemonade
+    case nature
+    case blueberry
+    case frozen
 }
