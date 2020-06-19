@@ -15,6 +15,7 @@ let montserratSemiBold = "Montserrat-SemiBold"
 let montserratBold = "Montserrat-Bold"
 
 extension UIFont {
+    static let headerFont = UIFont(name: montserratSemiBold, size: 24)
     static let timerFont = UIFont(name: sourceCodeProBlack, size: 28)
     static let stepperUnitFont = UIFont(name: montserratBold, size: 16)
     static var settingsTextFont: UIFont? {
@@ -27,4 +28,5 @@ extension UIFont {
     }
 //    static let settingsTextFont = UIFont(name: montserratBold, size: 14)
     static let buttonsFont = UIFont(name: montserratSemiBold, size: 16)
+    static let badgeFont = UIFont(name: montserratBold, size: 16)
 }

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "SettingsTabIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bg.png",
+      "filename" : "SettingsTabIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "SettingsTabIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

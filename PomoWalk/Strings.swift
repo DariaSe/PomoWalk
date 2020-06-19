@@ -12,6 +12,7 @@ struct Strings {
     
     // Tab bar
     static let timer = "Timer".localized
+    static let badges = "Badges".localized
     static let settings = "Settings".localized
     
     // Main screen
@@ -31,6 +32,11 @@ struct Strings {
     
     static let steps = "Steps: ".localized
     static let stepsToday = "Total steps today: ".localized
+    
+    // Badges
+    static let stepsUnavailable = "Steps counting is unavailable\n\non this device".localized
+    static let totalSteps = "Total steps during walks: ".localized
+    static let totalWalks = "Total walks (min. 50 steps): ".localized
     
     // Notification
     static let timeIsUp = "Time's up!".localized

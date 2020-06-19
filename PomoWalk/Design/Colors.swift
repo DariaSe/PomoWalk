@@ -25,13 +25,13 @@ extension UIColor {
     static var backgroundColor: UIColor {
         switch colorScheme {
         case .lemonade:
-            return UIColor(netHex: 0xF2E97B)
+            return UIColor(netHex: 0xF7F2B1)
         case .nature:
             return UIColor(netHex: 0x38362E)
         case .blueberry:
             return UIColor(netHex: 0x372948)
         case .frozen:
-            return UIColor(netHex: 0x9DC6E3)
+            return UIColor(netHex: 0xB5DEFA)
         }
     }
     
@@ -76,8 +76,8 @@ extension UIColor {
 }
 
 enum ColorScheme: Int {
-    case lemonade
     case nature
     case blueberry
+    case lemonade
     case frozen
 }

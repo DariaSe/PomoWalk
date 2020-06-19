@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreMotion
 
 enum ActivityType: String {
     case work
@@ -18,6 +19,7 @@ struct Interval: Codable {
     var startDate: Date
     var endDate: Date
     var activityType: String
+    var steps: Int?
     
     var duration: TimeInterval {
         let type = ActivityType(rawValue: activityType)!
@@ -79,6 +81,33 @@ struct Interval: Codable {
         }
         else {
             Interval.saveFinishedToFile(intervals: finishedIntervals)
+        }
+    }
+    
+    static func getStepsForFinishedIntervals(intervals: [Interval], from pedometer: CMPedometer, completion: @escaping ([Interval]) -> Void) {
+        let savedWalks = intervals.filter{ $0.activityType != ActivityType.work.rawValue }
+        var intervalsWithSteps = [Interval]()
+        var count = 0
+        for interval in savedWalks {
+            var newInterval = interval
+            newInterval.getSteps(from: pedometer) { (stepsNumber) in
+                newInterval.steps = stepsNumber
+                intervalsWithSteps.append(newInterval)
+                count += 1
+                if count == savedWalks.count {
+                    completion(intervalsWithSteps)
+                }
+            }
+        }
+    }
+    
+    func getSteps(from pedometer: CMPedometer, completion: @escaping (Int) -> Void) {
+        guard CMPedometer.isStepCountingAvailable() else { return }
+        if activityType != ActivityType.work.rawValue {
+            pedometer.queryPedometerData(from: startDate, to: endDate) { (data, error) in
+                guard let data = data, error == nil else { return }
+                completion(Int(truncating: data.numberOfSteps))
+            }
         }
     }
 }

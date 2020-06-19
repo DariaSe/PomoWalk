@@ -32,6 +32,7 @@ class TimerCoordinator: NSObject {
     }
     
     func start() {
+        
         timerVC.coordinator = self
         timerManager.delegate = self
         showTotalSteps()
@@ -150,11 +151,14 @@ class TimerCoordinator: NSObject {
     }
     
     func startNext() {
+        pedometer.stopUpdates()
+        timerVC.currentStepsLabel.text = Strings.steps + "0"
         if let interval = Interval.current() {
             fireDate = interval.endDate
             startTimeInterval = interval.duration
             activityType = ActivityType(rawValue: interval.activityType)!
             timerManager.startTimer()
+            showCurrentSteps()
         }
     }
     

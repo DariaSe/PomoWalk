@@ -8,6 +8,7 @@
 
 // Tab bar
 "Timer" = "Timer";
+"Badges" = "Badges";
 "Settings" = "Settings";
 
 // Main screen
@@ -27,6 +28,11 @@
 
 "Steps: " = "Steps: ";
 "Total steps today: " = "Total steps today: ";
+
+// Badges
+"Steps counting is unavailable\n\non this device" = "Steps counting is unavailable\n\non this device";
+"Total steps during walks: " = "Total steps during walks: ";
+"Total walks (min. 50 steps): " = "Total walks (min. 50 steps): ";
 
 
 // Notifications

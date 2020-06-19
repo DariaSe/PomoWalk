@@ -8,6 +8,7 @@
 
 // Tab bar
 "Timer" = "Таймер";
+"Badges" = "Достижения";
 "Settings" = "Настройки";
 
 // Mail screen
@@ -27,6 +28,11 @@
 
 "Steps: " = "Шаги: ";
 "Total steps today: " = "Всего шагов за сегодня: ";
+
+// Badges
+"Steps counting is unavailable\n\non this device" = "Подсчёт шагов недоступен\n\nна данном устройстве";
+"Total steps during walks: " = "Всего шагов за время перерывов: ";
+"Total walks (min. 50 steps): " = "Всего подвижных перерывов (мин. 50 шагов): ";
 
 
 // Notifications

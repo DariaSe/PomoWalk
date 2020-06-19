@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = UIColor.backgroundColor
         setupLayout()
         settingsLabel.textAlignment = .center
-        settingsLabel.font = UIFont(name: montserratSemiBold, size: 24)
+        settingsLabel.font = UIFont.headerFont
         settingsLabel.textColor = UIColor.textColor
         settingsLabel.text = Strings.settings
         

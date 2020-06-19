@@ -23,6 +23,13 @@
 		DA57E1F02497B69D00248AD9 /* DropdownMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E1EF2497B69D00248AD9 /* DropdownMenuTableViewCell.swift */; };
 		DA57E1F22497B93300248AD9 /* SoundColorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E1F12497B93300248AD9 /* SoundColorSettingsView.swift */; };
 		DA57E1F42497B97900248AD9 /* LabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E1F32497B97900248AD9 /* LabelButtonView.swift */; };
+		DA57E1FE249BB66500248AD9 /* extension Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E1FD249BB66500248AD9 /* extension Int.swift */; };
+		DA57E200249BB8F100248AD9 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E1FF249BB8F100248AD9 /* BadgesViewController.swift */; };
+		DA57E202249BBC4100248AD9 /* BadgesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E201249BBC4100248AD9 /* BadgesCoordinator.swift */; };
+		DA57E204249BC54400248AD9 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E203249BC54400248AD9 /* BadgeCollectionViewCell.swift */; };
+		DA57E206249BC6CA00248AD9 /* BadgesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E205249BC6CA00248AD9 /* BadgesCollectionReusableView.swift */; };
+		DA57E208249BC88F00248AD9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E207249BC88F00248AD9 /* BadgeView.swift */; };
+		DA57E20A249C957800248AD9 /* m_Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E209249C957800248AD9 /* m_Badge.swift */; };
 		DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */; };
 		DA77DB48243EFEE000B0B8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */; };
 		DA77DB4B243EFEE000B0B8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77DB49243EFEE000B0B8A1 /* LaunchScreen.storyboard */; };
@@ -70,6 +77,13 @@
 		DA57E1EF2497B69D00248AD9 /* DropdownMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenuTableViewCell.swift; sourceTree = "<group>"; };
 		DA57E1F12497B93300248AD9 /* SoundColorSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundColorSettingsView.swift; sourceTree = "<group>"; };
 		DA57E1F32497B97900248AD9 /* LabelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonView.swift; sourceTree = "<group>"; };
+		DA57E1FD249BB66500248AD9 /* extension Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension Int.swift"; sourceTree = "<group>"; };
+		DA57E1FF249BB8F100248AD9 /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		DA57E201249BBC4100248AD9 /* BadgesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesCoordinator.swift; sourceTree = "<group>"; };
+		DA57E203249BC54400248AD9 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA57E205249BC6CA00248AD9 /* BadgesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesCollectionReusableView.swift; sourceTree = "<group>"; };
+		DA57E207249BC88F00248AD9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		DA57E209249C957800248AD9 /* m_Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = m_Badge.swift; sourceTree = "<group>"; };
 		DA77DB3B243EFEDD00B0B8A1 /* PomoWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,10 +142,71 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		DA57E1F5249BAFCB00248AD9 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				DA7DE9B62445F8E300407C5C /* BaseSettings.swift */,
+				DA7DE9B824470BBA00407C5C /* SoundColorSettings.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		DA57E1F6249BAFE500248AD9 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */,
+				DA57E1F12497B93300248AD9 /* SoundColorSettingsView.swift */,
+				DA57E1F7249BAFEE00248AD9 /* Base views */,
+				DA57E1F9249BB05000248AD9 /* Dropdown menu */,
+				DA57E1F8249BB01A00248AD9 /* Not used */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		DA57E1F7249BAFEE00248AD9 /* Base views */ = {
+			isa = PBXGroup;
+			children = (
+				DA7DE99E2444474400407C5C /* StepperUnitView.swift */,
+				DA7DE9A324447A5E00407C5C /* LabelStepperView.swift */,
+				DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */,
+				DA57E1F32497B97900248AD9 /* LabelButtonView.swift */,
+			);
+			path = "Base views";
+			sourceTree = "<group>";
+		};
+		DA57E1F8249BB01A00248AD9 /* Not used */ = {
+			isa = PBXGroup;
+			children = (
+				DABCA61424488D1400682368 /* WeekDayPickerView.swift */,
+				DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */,
+			);
+			path = "Not used";
+			sourceTree = "<group>";
+		};
+		DA57E1F9249BB05000248AD9 /* Dropdown menu */ = {
+			isa = PBXGroup;
+			children = (
+				DA57E1ED2497B5DD00248AD9 /* DropdownMenuView.swift */,
+				DA57E1EF2497B69D00248AD9 /* DropdownMenuTableViewCell.swift */,
+			);
+			path = "Dropdown menu";
+			sourceTree = "<group>";
+		};
+		DA57E1FA249BB5F800248AD9 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				DA57E201249BBC4100248AD9 /* BadgesCoordinator.swift */,
+				DA57E1FF249BB8F100248AD9 /* BadgesViewController.swift */,
+				DA57E203249BC54400248AD9 /* BadgeCollectionViewCell.swift */,
+				DA57E207249BC88F00248AD9 /* BadgeView.swift */,
+				DA57E205249BC6CA00248AD9 /* BadgesCollectionReusableView.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
 		DA77DB32243EFEDD00B0B8A1 = {
 			isa = PBXGroup;
 			children = (
-				DA7DE9C12447563400407C5C /* extension String.swift */,
 				DA77DB3D243EFEDD00B0B8A1 /* PomoWalk */,
 				DA77DB3C243EFEDD00B0B8A1 /* Products */,
 			);
@@ -151,11 +226,13 @@
 				DA77DB3E243EFEDD00B0B8A1 /* AppDelegate.swift */,
 				DA7DE9A924448DA200407C5C /* MainTabBarController.swift */,
 				DA7DE9AF2444ABBB00407C5C /* Main */,
+				DA57E1FA249BB5F800248AD9 /* Achievements */,
 				DA7DE9802441F9BE00407C5C /* Settings */,
 				DA7DE9782440FFB000407C5C /* RoundButton.swift */,
 				DA02F8AE248A94400087E274 /* m_Interval.swift */,
 				DA02F8B0248A956C0087E274 /* IntervalsManager.swift */,
 				DA02F8B2248BCC8F0087E274 /* NotificationsManager.swift */,
+				DA57E209249C957800248AD9 /* m_Badge.swift */,
 				DA7DE9A02444772E00407C5C /* Extensions */,
 				DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */,
 				DA02F89F2489665B0087E274 /* Sounds */,
@@ -192,19 +269,9 @@
 		DA7DE9802441F9BE00407C5C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				DA7DE9B62445F8E300407C5C /* BaseSettings.swift */,
-				DA7DE9B824470BBA00407C5C /* SoundColorSettings.swift */,
+				DA57E1F5249BAFCB00248AD9 /* UserDefaults */,
 				DA7DE97C2441ED6900407C5C /* SettingsViewController.swift */,
-				DA7DE9AB2444953E00407C5C /* BaseSettingsView.swift */,
-				DABCA61424488D1400682368 /* WeekDayPickerView.swift */,
-				DA7DE9B22445F1FE00407C5C /* ScheduleUnitView.swift */,
-				DA7DE9A324447A5E00407C5C /* LabelStepperView.swift */,
-				DA7DE9AD2444A2FD00407C5C /* LabelSwitchView.swift */,
-				DA7DE99E2444474400407C5C /* StepperUnitView.swift */,
-				DA57E1F32497B97900248AD9 /* LabelButtonView.swift */,
-				DA57E1F12497B93300248AD9 /* SoundColorSettingsView.swift */,
-				DA57E1ED2497B5DD00248AD9 /* DropdownMenuView.swift */,
-				DA57E1EF2497B69D00248AD9 /* DropdownMenuTableViewCell.swift */,
+				DA57E1F6249BAFE500248AD9 /* Subviews */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -213,7 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				DA7DE962243F39CE00407C5C /* extension UIView.swift */,
+				DA57E1FD249BB66500248AD9 /* extension Int.swift */,
 				DA7DE97A2441A67F00407C5C /* extension Date.swift */,
+				DA7DE9C12447563400407C5C /* extension String.swift */,
 				DA7DE9A12444775300407C5C /* protocol SizeAnimatable.swift */,
 				DABCA61224488BC500682368 /* extension Calendar.swift */,
 			);
@@ -318,19 +387,25 @@
 				DA57E1F42497B97900248AD9 /* LabelButtonView.swift in Sources */,
 				DA7DE9712440C1EC00407C5C /* Colors.swift in Sources */,
 				DA7DE96924409B6800407C5C /* TimerCounterView.swift in Sources */,
+				DA57E204249BC54400248AD9 /* BadgeCollectionViewCell.swift in Sources */,
 				DA7DE97B2441A67F00407C5C /* extension Date.swift in Sources */,
 				DA7DE963243F39CE00407C5C /* extension UIView.swift in Sources */,
 				DA7DE9C22447563400407C5C /* extension String.swift in Sources */,
 				DA7DE9B32445F1FE00407C5C /* ScheduleUnitView.swift in Sources */,
+				DA57E200249BB8F100248AD9 /* BadgesViewController.swift in Sources */,
 				DA77DB3F243EFEDD00B0B8A1 /* AppDelegate.swift in Sources */,
 				DA7DE99F2444474400407C5C /* StepperUnitView.swift in Sources */,
+				DA57E208249BC88F00248AD9 /* BadgeView.swift in Sources */,
 				DA02F8B3248BCC8F0087E274 /* NotificationsManager.swift in Sources */,
+				DA57E1FE249BB66500248AD9 /* extension Int.swift in Sources */,
 				DA7DE9B924470BBA00407C5C /* SoundColorSettings.swift in Sources */,
 				DA02F89E24894D5F0087E274 /* Strings.swift in Sources */,
+				DA57E206249BC6CA00248AD9 /* BadgesCollectionReusableView.swift in Sources */,
 				DA7DE9AC2444953E00407C5C /* BaseSettingsView.swift in Sources */,
 				DA02F8AF248A94400087E274 /* m_Interval.swift in Sources */,
 				DA02F8B5248BDAB70087E274 /* TimerManager.swift in Sources */,
 				DA7DE9B72445F8E300407C5C /* BaseSettings.swift in Sources */,
+				DA57E20A249C957800248AD9 /* m_Badge.swift in Sources */,
 				DA7DE9A424447A5E00407C5C /* LabelStepperView.swift in Sources */,
 				DA02F8B7248BDF3D0087E274 /* TimerCoordinator.swift in Sources */,
 				DA7DE9792440FFB000407C5C /* RoundButton.swift in Sources */,
@@ -341,6 +416,7 @@
 				DABCA61324488BC500682368 /* extension Calendar.swift in Sources */,
 				DA77DB53243EFF7500B0B8A1 /* MainViewController.swift in Sources */,
 				DA7DE9A22444775300407C5C /* protocol SizeAnimatable.swift in Sources */,
+				DA57E202249BBC4100248AD9 /* BadgesCoordinator.swift in Sources */,
 				DA57E1EE2497B5DD00248AD9 /* DropdownMenuView.swift in Sources */,
 				DA7DE97D2441ED6900407C5C /* SettingsViewController.swift in Sources */,
 				DA57E1F22497B93300248AD9 /* SoundColorSettingsView.swift in Sources */,
