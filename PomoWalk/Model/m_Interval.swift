@@ -19,6 +19,7 @@ struct Interval: Codable {
     var startDate: Date
     var endDate: Date
     var activityType: String
+    var task: String?
     var steps: Int?
     
     var duration: TimeInterval {
@@ -29,6 +30,8 @@ struct Interval: Codable {
         case .longPause: return TimeInterval(BaseSettings.longPauseDuration * 60)
         }
     }
+    
+    static let pedometer = CMPedometer()
     
     static func current() -> Interval? {
         if let intervals = Interval.loadAllFromFile(),
@@ -41,6 +44,12 @@ struct Interval: Codable {
         else {
             return nil
         }
+    }
+    
+    func withTask(_ task: String) -> Interval {
+        var interval = self
+        interval.task = task
+        return interval
     }
     
     // MARK: - Coding and encoding
@@ -75,26 +84,28 @@ struct Interval: Codable {
     
     static func filterAndSaveFinished(from intervals: [Interval]) {
         let finishedIntervals = intervals.filter { ($0.endDate < Date()) }
-        if var savedFinished = Interval.loadFinishedFromFile() {
-            savedFinished.append(contentsOf: finishedIntervals)
-            Interval.saveFinishedToFile(intervals: savedFinished)
-        }
-        else {
-            Interval.saveFinishedToFile(intervals: finishedIntervals)
+        getStepsForIntervals(intervals: finishedIntervals, from: pedometer) { (intervals) in
+            print("get steps")
+            if let savedFinished = Interval.loadFinishedFromFile() {
+                Interval.saveFinishedToFile(intervals: savedFinished + intervals)
+            }
+            else {
+                Interval.saveFinishedToFile(intervals: intervals)
+            }
         }
     }
     
-    static func getStepsForFinishedIntervals(intervals: [Interval], from pedometer: CMPedometer, completion: @escaping ([Interval]) -> Void) {
-        let savedWalks = intervals.filter{ $0.activityType != ActivityType.work.rawValue }
+    static func getStepsForIntervals(intervals: [Interval], from pedometer: CMPedometer, completion: @escaping ([Interval]) -> Void) {
+        guard !intervals.isEmpty else { completion([]); return }
         var intervalsWithSteps = [Interval]()
         var count = 0
-        for interval in savedWalks {
+        for interval in intervals {
             var newInterval = interval
             newInterval.getSteps(from: pedometer) { (stepsNumber) in
                 newInterval.steps = stepsNumber
                 intervalsWithSteps.append(newInterval)
                 count += 1
-                if count == savedWalks.count {
+                if count == intervals.count {
                     completion(intervalsWithSteps)
                 }
             }
@@ -103,11 +114,18 @@ struct Interval: Codable {
     
     func getSteps(from pedometer: CMPedometer, completion: @escaping (Int) -> Void) {
         guard CMPedometer.isStepCountingAvailable() else { return }
-        if activityType != ActivityType.work.rawValue {
-            pedometer.queryPedometerData(from: startDate, to: endDate) { (data, error) in
-                guard let data = data, error == nil else { return }
-                completion(Int(truncating: data.numberOfSteps))
-            }
+        pedometer.queryPedometerData(from: startDate, to: endDate) { (data, error) in
+            guard let data = data, error == nil else { return }
+            completion(Int(truncating: data.numberOfSteps))
         }
+    }
+}
+
+extension Interval: Comparable, Equatable {
+    static func <(lhs: Interval, rhs: Interval) -> Bool {
+        return lhs.endDate < rhs.endDate
+    }
+    static func ==(lhs: Interval, rhs: Interval) -> Bool {
+        return lhs.endDate == rhs.endDate
     }
 }

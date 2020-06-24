@@ -73,6 +73,19 @@ extension UIColor {
             return UIColor(netHex: 0x4191B4)
         }
     }
+    
+    static var backgroundCompanionColor: UIColor {
+        switch colorScheme {
+        case .lemonade:
+            return UIColor(netHex: 0xB0CC6E)
+        case .nature:
+            return UIColor(netHex: 0x4C5B30)
+        case .blueberry:
+            return UIColor(netHex: 0x6A3967)
+            case .frozen:
+            return UIColor(netHex: 0x6FAFD0)
+        }
+    }
 }
 
 enum ColorScheme: Int {

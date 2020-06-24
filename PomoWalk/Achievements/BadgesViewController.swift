@@ -37,15 +37,11 @@ class BadgesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundColor
-        badgesLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(badgesLabel)
-        badgesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        badgesLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 10).isActive = true
+        badgesLabel.constrainTopAndBottomToLayoutMargins(of: view, leading: 0, trailing: 0, top: 10, bottom: nil)
         badgesLabel.textAlignment = .center
         badgesLabel.font = UIFont.headerFont
         badgesLabel.textColor = UIColor.textColor
         badgesLabel.text = Strings.badges
-        
         
         stepsUnavailableLabel.center(in: view)
         stepsUnavailableLabel.textColor = UIColor.textColor

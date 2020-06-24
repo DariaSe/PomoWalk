@@ -28,5 +28,6 @@ extension UIFont {
     }
 //    static let settingsTextFont = UIFont(name: montserratBold, size: 14)
     static let buttonsFont = UIFont(name: montserratSemiBold, size: 16)
+    static let historyTimeFont = UIFont(name: montserratSemiBold, size: 10)
     static let badgeFont = UIFont(name: montserratBold, size: 16)
 }

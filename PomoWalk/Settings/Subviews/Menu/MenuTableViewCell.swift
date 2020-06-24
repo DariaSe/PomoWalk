@@ -1,5 +1,5 @@
 //
-//  DropdownMenuTableViewCell.swift
+//  MenuTableViewCell.swift
 //  PomoWalk
 //
 //  Created by Дарья Селезнёва on 15.06.2020.
@@ -8,15 +8,26 @@
 
 import UIKit
 
-class DropdownMenuTableViewCell: UITableViewCell {
+class MenuTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "dropDownCell"
     
     let shadowingView = UIView()
     let stackView = UIStackView()
-    let optionLabel = UILabel()
+    let optionTextField = UITextField()
     let checkmarkLabel = UILabel()
+    
+    var isEditable: Bool = false {
+        didSet {
+            optionTextField.isUserInteractionEnabled = isEditable
+            if isEditable {
+                optionTextField.becomeFirstResponder()
+            }
+        }
+    }
 
+    var textChanged: ((String) -> Void)?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialSetup()
@@ -37,11 +48,18 @@ class DropdownMenuTableViewCell: UITableViewCell {
         shadowingView.backgroundColor = UIColor.black.withAlphaComponent(0.05)
         stackView.pinToLayoutMargins(to: contentView)
         stackView.axis = .horizontal
-        stackView.addArrangedSubview(optionLabel)
+        stackView.spacing = 20
+        stackView.addArrangedSubview(optionTextField)
         stackView.addArrangedSubview(checkmarkLabel)
         
-        optionLabel.textColor = UIColor.walkCounterColor
-        optionLabel.font = UIFont.stepperUnitFont
+        optionTextField.textColor = UIColor.walkCounterColor
+        optionTextField.font = UIFont.stepperUnitFont
+        optionTextField.delegate = self
+        optionTextField.returnKeyType = .done
+        optionTextField.layer.cornerRadius = 10
+        optionTextField.setLeftPaddingPoints(10)
+        optionTextField.autocapitalizationType = .sentences
+        optionTextField.adjustsFontSizeToFitWidth = true
         
         checkmarkLabel.textColor = UIColor.walkCounterColor
         checkmarkLabel.font = UIFont.stepperUnitFont
@@ -49,7 +67,7 @@ class DropdownMenuTableViewCell: UITableViewCell {
     }
     
     func update(text: String, isSelected: Bool) {
-        optionLabel.text = text
+        optionTextField.text = text
         checkmarkLabel.alpha = isSelected ? 1.0 : 0.0
     }
     
@@ -63,7 +81,24 @@ class DropdownMenuTableViewCell: UITableViewCell {
     
     func setupColors() {
         contentView.backgroundColor = UIColor.backgroundColor
-        optionLabel.textColor = UIColor.walkCounterColor
+        optionTextField.textColor = UIColor.walkCounterColor
         checkmarkLabel.textColor = UIColor.walkCounterColor
+    }
+}
+
+extension MenuTableViewCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        contentView.endEditing(true)
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textChanged?(textField.text ?? "")
+        textField.backgroundColor = UIColor.clear
     }
 }

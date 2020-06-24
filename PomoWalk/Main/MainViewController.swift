@@ -23,14 +23,23 @@ class MainViewController: UIViewController {
                 startStopButton.backgroundColor = UIColor.workCounterColor
                 walkWorkButton.backgroundColor = UIColor.walkCounterColor
                 walkWorkButton.setTitle(Strings.walk, for: .normal)
-                currentStepsLabel.textColor = UIColor.clear
+                currentStepsLabel.isHidden = true
+                taskButton.isHidden = false
             case .walk, .longPause:
                 timerLabel.textColor = UIColor.walkCounterColor
                 startStopButton.backgroundColor = UIColor.walkCounterColor
                 walkWorkButton.backgroundColor = UIColor.workCounterColor
                 walkWorkButton.setTitle(Strings.work, for: .normal)
                 currentStepsLabel.textColor = UIColor.walkCounterColor
+                currentStepsLabel.isHidden = false
+                taskButton.isHidden = true
             }
+        }
+    }
+    
+    var task: String? {
+        didSet {
+            taskButton.setTitle(task, for: .normal)
         }
     }
     
@@ -62,6 +71,8 @@ class MainViewController: UIViewController {
     let currentStepsLabel = UILabel()
     let totalStepsLabel = UILabel()
     
+    let taskButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundColor
@@ -72,6 +83,11 @@ class MainViewController: UIViewController {
         initialSetup()
         
         UserDefaults.standard.addObserver(self, forKeyPath: SoundColorSettings.colorSchemeKey, options: .new, context: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        coordinator?.getTasks()
     }
     
     func setupLayout() {
@@ -100,6 +116,9 @@ class MainViewController: UIViewController {
         totalStepsLabel.translatesAutoresizingMaskIntoConstraints = false
         totalStepsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         totalStepsLabel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+        
+        taskButton.constrainToLayoutMargins(of: view, leading: 0, trailing: 0, top: nil, bottom: nil)
+        taskButton.bottomAnchor.constraint(equalTo: timerLabel.topAnchor, constant: -10).isActive = true
     }
     
     func initialSetup() {
@@ -121,6 +140,15 @@ class MainViewController: UIViewController {
         currentStepsLabel.text = Strings.steps + "0"
         
         totalStepsLabel.font = UIFont.settingsTextFont
+        
+        taskButton.setTitleColor(UIColor.textColor, for: .normal)
+        taskButton.titleLabel?.font = UIFont.stepperUnitFont
+        taskButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        taskButton.addTarget(self, action: #selector(taskButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func taskButtonPressed() {
+        coordinator?.showTasks()
     }
     
     func setupStepsLabels(current: Int, total: Int) {
@@ -152,6 +180,7 @@ extension MainViewController {
             view.backgroundColor = UIColor.backgroundColor
             let sameType = activityType
             activityType = sameType
+            taskButton.setTitleColor(UIColor.textColor, for: .normal)
         }
     }
 }

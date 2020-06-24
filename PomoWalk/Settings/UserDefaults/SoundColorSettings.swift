@@ -60,20 +60,20 @@ class SoundColorSettings {
         }
     }
     
-    static var colorSchemes: [DropdownOption] {
-        var schemes = [DropdownOption(title: "Nature", isSelected: false), DropdownOption(title: "Blueberry", isSelected: false), DropdownOption(title: "Lemonade", isSelected: false), DropdownOption(title: "Frozen", isSelected: false)]
+    static var colorSchemes: [MenuOption] {
+        var schemes = [MenuOption(title: "Nature", isSelected: false), MenuOption(title: "Blueberry", isSelected: false), MenuOption(title: "Lemonade", isSelected: false), MenuOption(title: "Frozen", isSelected: false)]
         for (index, _) in schemes.enumerated() {
             schemes[index].isSelected = index == colorScheme
         }
         return schemes
     }
     
-    static var workEndSounds: [DropdownOption] {
-        Sound.allCases.map { DropdownOption(title: $0.rawValue.capitalized, isSelected: $0.rawValue == workEndSound)}
+    static var workEndSounds: [MenuOption] {
+        Sound.allCases.map { MenuOption(title: $0.rawValue.capitalized, isSelected: $0.rawValue == workEndSound)}
     }
     
-    static var walkEndSounds: [DropdownOption] {
-        Sound.allCases.map { DropdownOption(title: $0.rawValue.capitalized, isSelected: $0.rawValue == walkEndSound)}
+    static var walkEndSounds: [MenuOption] {
+        Sound.allCases.map { MenuOption(title: $0.rawValue.capitalized, isSelected: $0.rawValue == walkEndSound)}
     }
 }
 

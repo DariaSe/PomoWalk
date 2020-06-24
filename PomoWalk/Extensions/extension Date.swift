@@ -12,6 +12,10 @@ extension Date {
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }
+    
+    func dayStart() -> Date {
+        return (Calendar.current.dateInterval(of: .day, for: self)?.start)!
+    }
 }
 
 extension TimeInterval {

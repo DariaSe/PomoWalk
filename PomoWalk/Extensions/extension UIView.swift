@@ -131,6 +131,30 @@ extension UIView {
     func setEqualWidth() {
         self.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
     }
+    
+    func centerHorizontally(in superview: UIView, top: CGFloat?, bottom: CGFloat?) {
+        superview.addSubview(self)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+        if let top = top {
+            self.topAnchor.constraint(equalTo: superview.topAnchor, constant: top).isActive = true
+        }
+        if let bottom = bottom {
+            self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -bottom).isActive = true
+        }
+    }
+    
+    func centerVertically(in superview: UIView, leading: CGFloat?, trailing: CGFloat?) {
+        superview.addSubview(self)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
+        if let leading = leading {
+            self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: leading).isActive = true
+        }
+        if let trailing = trailing {
+            self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -trailing).isActive = true
+        }
+    }
 }
 
 extension UIView {

@@ -15,6 +15,13 @@ class TimerCoordinator: NSObject {
     let timerManager = TimerManager()
     let notificationsManager = NotificationsManager()
     
+    lazy var tasksVC: TasksViewController = {
+        let taskVC = TasksViewController()
+        taskVC.delegate = self
+        taskVC.modalPresentationStyle = .overCurrentContext
+        return taskVC
+    }()
+    
     let pedometer = CMPedometer()
     
     var fireDate: Date?
@@ -31,8 +38,20 @@ class TimerCoordinator: NSObject {
         }
     }
     
+    var tasks: [Task] = [] {
+        didSet {
+            tasksVC.options = tasks.map { $0.option() }
+            Task.saveToFile(tasks: tasks)
+            if let activeTask = tasks.filter({ $0.isActive }).first {
+                timerVC.taskButton.setTitle(activeTask.title, for: .normal)
+            }
+            else {
+                timerVC.taskButton.setTitle(Strings.newTask, for: .normal)
+            }
+        }
+    }
+    
     func start() {
-        
         timerVC.coordinator = self
         timerManager.delegate = self
         showTotalSteps()
@@ -42,6 +61,11 @@ class TimerCoordinator: NSObject {
                 fireDate = currentInterval.endDate
                 startTimeInterval = currentInterval.duration
                 activityType = ActivityType(rawValue: currentInterval.activityType)!
+                if CMPedometer.isStepCountingAvailable() {
+                    currentInterval.getSteps(from: pedometer) { [unowned self] (stepsNumber) in
+                        self.showCurrentSteps(startingWith: stepsNumber)
+                    }
+                }
                 timerManager.startTimer()
                 timerVC.isTimerRunning = true
             }
@@ -53,6 +77,7 @@ class TimerCoordinator: NSObject {
         else {
             setDefaultUI()
         }
+        getTasks()
         UserDefaults.standard.addObserver(self, forKeyPath: BaseSettings.workIntervalDurationKey, options: .new, context: nil)
         UserDefaults.standard.addObserver(self, forKeyPath: BaseSettings.walkIntervalDurationKey, options: .new, context: nil)
     }
@@ -60,6 +85,15 @@ class TimerCoordinator: NSObject {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         stopTimer()
         setDefaultUI()
+    }
+    
+    func getTasks() {
+        if let tasks = Task.loadFromFile() {
+            self.tasks = tasks
+        }
+        else {
+            self.timerVC.taskButton.setTitle(Strings.newTask, for: .normal)
+        }
     }
     
     func setDefaultUI() {
@@ -83,8 +117,15 @@ class TimerCoordinator: NSObject {
         timerManager.startTimer()
         timerVC.isTimerRunning = true
         notificationsManager.scheduleNotifications(startingWith: activityType)
-        
+        setTaskForIntervals()
         showCurrentSteps()
+    }
+    
+    func setTaskForIntervals() {
+        if let activeTask = tasks.filter({  $0.isActive }).first, var intervals = Interval.loadAllFromFile(), !intervals.isEmpty {
+            intervals = intervals.map { ($0.activityType == "work") && ($0.endDate > Date()) ? $0.withTask(activeTask.title) : $0 }
+            Interval.saveAllToFile(intervals: intervals)
+        }
     }
     
     func alertStop() {
@@ -99,7 +140,7 @@ class TimerCoordinator: NSObject {
     }
     
     func stopTimer() {
-        if let intervals = Interval.loadAllFromFile() {
+        if let intervals = Interval.loadAllFromFile(), !intervals.isEmpty {
             Interval.filterAndSaveFinished(from: intervals)
         }
         timerManager.stopTimer()
@@ -140,6 +181,7 @@ class TimerCoordinator: NSObject {
             activityType = .walk
             let walkDuration = BaseSettings.walkIntervalDuration
             startTimeInterval = TimeInterval(walkDuration * 60)
+            self.timerVC.currentStepsLabel.text = Strings.steps + "0"
         }
         else {
             activityType = .work
@@ -160,14 +202,19 @@ class TimerCoordinator: NSObject {
             timerManager.startTimer()
             showCurrentSteps()
         }
+        else {
+            setDefaultUI()
+        }
     }
     
-    func showCurrentSteps() {
+    func showCurrentSteps(startingWith stepsNumber: Int = 0) {
         if activityType != .work, CMPedometer.isStepCountingAvailable() {
             pedometer.startUpdates(from: Date()) { [unowned self] (data, error) in
                 guard let data = data, error == nil else { return }
+                let countedStepsNumber = Int(truncating: data.numberOfSteps)
+                let totalNumber = stepsNumber + countedStepsNumber
                 DispatchQueue.main.async {
-                    self.timerVC.currentStepsLabel.text = Strings.steps + String(Int(truncating: data.numberOfSteps))
+                    self.timerVC.currentStepsLabel.text = Strings.steps + String(totalNumber)
                     self.showTotalSteps()
                 }
             }
@@ -183,6 +230,10 @@ class TimerCoordinator: NSObject {
                 self.timerVC.totalStepsLabel.text = Strings.stepsToday + String(Int(truncating: data.numberOfSteps))
             }
         }
+    }
+    
+    func showTasks() {
+        timerVC.present(tasksVC, animated: true)
     }
 }
 
@@ -202,5 +253,32 @@ extension TimerCoordinator: TimerDelegate {
                 stopTimer()
             }
         }
+    }
+}
+
+extension TimerCoordinator: MenuDelegate {
+    
+    func addButtonPressed() {
+        tasks.append(Task(title: "", isActive: false, intervalsPlanned: nil))
+        tasksVC.menuView.editingRow = tasks.count - 1
+        tasksVC.menuView.tableView.scrollToRow(at: IndexPath(row: tasks.count - 1, section: 0), at: .bottom, animated: true)
+    }
+    
+    func didSelectOption(index: Int) {
+        tasks = self.tasks.map { $0.switchedOff() }
+        tasks[index].isActive = true
+        setTaskForIntervals()
+    }
+    
+    func optionChanged(text: String, index: Int) {
+        tasks[index].title = text
+        tasksVC.menuView.editingRow = nil
+        if tasks[index].title == "" && index == tasks.count - 1 {
+            tasks.removeLast()
+        }
+    }
+    
+    func deleteOption(index: Int) {
+        tasks.remove(at: index)
     }
 }

@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
     let baseSettingsView = BaseSettingsView()
     let soundColorSettingsView = SoundColorSettingsView()
     
-    let dropdownMenu = DropdownMenuView()
+    let dropdownMenu = MenuView()
     
     let shadowingView = UIView()
     
@@ -123,7 +123,7 @@ extension SettingsViewController: DropdownDelegate {
         dropdownMenu.isHidden = false
         let sounds = SoundColorSettings.workEndSounds
         let dropdownHeight = CGFloat(sounds.count * 44)
-        let frame = frameForDropdown(sender: sender, width: 160, height: dropdownHeight)
+        let frame = frameForDropdown(sender: sender, width: 180, height: dropdownHeight)
         dropdownMenu.frame = frame
         dropdownMenu.options = sounds
         dropdownMenu.didSelectOption = { [unowned self] int in
@@ -141,7 +141,7 @@ extension SettingsViewController: DropdownDelegate {
         dropdownMenu.isHidden = false
         let sounds = SoundColorSettings.walkEndSounds
         let dropdownHeight = CGFloat(sounds.count * 44)
-        let frame = frameForDropdown(sender: sender, width: 160, height: dropdownHeight)
+        let frame = frameForDropdown(sender: sender, width: 180, height: dropdownHeight)
         dropdownMenu.frame = frame
         dropdownMenu.options = sounds
         dropdownMenu.didSelectOption = { [unowned self] int in
@@ -159,7 +159,7 @@ extension SettingsViewController: DropdownDelegate {
         dropdownMenu.isHidden = false
         let schemes = SoundColorSettings.colorSchemes
         let dropdownHeight = CGFloat(schemes.count * 44)
-        let frame = frameForDropdown(sender: sender, width: 160, height: dropdownHeight)
+        let frame = frameForDropdown(sender: sender, width: 180, height: dropdownHeight)
         dropdownMenu.frame = frame
         dropdownMenu.options = schemes
         dropdownMenu.didSelectOption = { [unowned self] int in

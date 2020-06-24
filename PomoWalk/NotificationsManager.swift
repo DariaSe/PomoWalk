@@ -12,13 +12,20 @@ class NotificationsManager {
     
     let intervalsManager = IntervalsManager()
     
+    let dateFormatter = DateFormatter()
+    
     func scheduleNotifications(startingWith type: ActivityType) {
         let intervals = intervalsManager.createAllIntervals(startingWith: type)
         for (index, interval) in intervals.enumerated() {
             if BaseSettings.isPrereminderSet {
                 schedulePrereminder(for: interval, index: index)
             }
-            scheduleNotification(for: interval, index: index)
+            if index < intervals.count - 1 {
+                scheduleNotification(for: interval, nextInterval: intervals[index + 1], index: index)
+            }
+            else {
+                scheduleNotification(for: interval, nextInterval: nil, index: index)
+            }
         }
     }
     
@@ -38,18 +45,35 @@ class NotificationsManager {
         }
     }
     
-    private func scheduleNotification(for interval: Interval, index: Int) {
-        let activityType = ActivityType(rawValue: interval.activityType)!
+    private func scheduleNotification(for interval: Interval, nextInterval: Interval?, index: Int) {
         var text: String
         var soundName: String
+        let activityType = ActivityType(rawValue: interval.activityType)!
         switch activityType {
         case .work:
-            text = Strings.goWalk
             soundName = SoundColorSettings.workEndSound + ".wav"
-        case .walk, .longPause:
-            text = Strings.goWork
+        default:
             soundName = SoundColorSettings.walkEndSound + ".wav"
         }
+        if let nextInterval = nextInterval {
+            let nextActivityType = ActivityType(rawValue: nextInterval.activityType)!
+            switch nextActivityType {
+            case .work:
+                text = Strings.goWork + "\n" + Strings.workUntil
+            case .walk:
+                text = Strings.goWalk + "\n" + Strings.walkUntil
+            case .longPause:
+                text = Strings.longPause + "\n" + Strings.walkUntil
+            }
+            dateFormatter.dateStyle = .none
+            dateFormatter.timeStyle = .short
+            let timeString = dateFormatter.string(from: nextInterval.endDate)
+            text += timeString + "."
+        }
+        else {
+            text = Strings.launchApp
+        }
+        
         let content = UNMutableNotificationContent()
         content.title = Strings.timeIsUp
         content.body = text

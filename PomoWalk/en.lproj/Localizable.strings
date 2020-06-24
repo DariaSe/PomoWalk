@@ -8,6 +8,7 @@
 
 // Tab bar
 "Timer" = "Timer";
+"History" = "History";
 "Badges" = "Badges";
 "Settings" = "Settings";
 
@@ -19,7 +20,7 @@
 
 "Stop the timer?" = "Stop the timer?";
 
-"Switch to"  = "Switch to ";
+"Switch to "  = "Switch to ";
 "work?" = "work?";
 "walk?" = "walk?";
 
@@ -28,6 +29,17 @@
 
 "Steps: " = "Steps: ";
 "Total steps today: " = "Total steps today: ";
+
+"Tasks" = "Tasks";
+"Tap \"+\" to add a task" = "Tap \"+\" to add a task";
+"New task..." = "New task...";
+"Cancel" = "Cancel";
+"Edit" = "Edit";
+"Delete" = "Delete";
+
+// History
+"Here will be displayed\n\nyour finished intervals" = "Here will be displayed\n\nyour finished intervals";
+"Delete this interval?" = "Delete this interval?";
 
 // Badges
 "Steps counting is unavailable\n\non this device" = "Steps counting is unavailable\n\non this device";
@@ -40,6 +52,9 @@
 "Grab your phone and walk!" = "Grab your phone and walk!";
 "Long pause!" = "Long pause!";
 "It's time to go back to work!" = "It's time to go back to work!";
+"Focus 'til " = "Focus 'til ";
+"Rest 'til " = "Rest 'til ";
+"Launch the app and start new timer." = "Launch the app and start new timer.";
 
 // Base Settings
 "(Сurrent timer will be stopped on settings change)" = "(Сurrent timer will be stopped on settings change)";

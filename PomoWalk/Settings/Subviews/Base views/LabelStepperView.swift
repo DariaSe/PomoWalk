@@ -64,6 +64,7 @@ class LabelStepperView: UIView {
         
         secondLabel.font = UIFont.settingsTextFont
         secondLabel.textColor = UIColor.textColor
+        secondLabel.adjustsFontSizeToFitWidth = true
         secondLabel.numberOfLines = 2
         secondLabel.textAlignment = .right
     }

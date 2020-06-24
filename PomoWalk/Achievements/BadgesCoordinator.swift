@@ -22,24 +22,24 @@ class BadgesCoordinator {
             return
         }
         badgesVC.stepsUnavailableLabel.isHidden = true
-        var currentFinished = [Interval]()
         var savedFinished = [Interval]()
-        if let currentIntervals = Interval.loadAllFromFile() {
-            currentFinished = currentIntervals.filter { $0.endDate < Date() }
-        }
+        var currentFinished = [Interval]()
         if let savedIntervals = Interval.loadFinishedFromFile() {
             savedFinished = savedIntervals
         }
-        let intervals = savedFinished + currentFinished
-        guard !intervals.isEmpty else {
-            self.badgesVC.badges = [Badge.stepsBadges(), Badge.walksBadges()]
-            self.badgesVC.headers = [Strings.totalSteps + "0", Strings.totalWalks + "0"]
-            return
+        if let currentIntervals = Interval.loadAllFromFile() {
+            currentFinished = currentIntervals.filter { $0.endDate < Date() }
         }
-        Interval.getStepsForFinishedIntervals(intervals: intervals, from: pedometer) { [unowned self] (intervals) in
-            let totalSteps = intervals.compactMap { $0.steps }.reduce(0) {$0 + $1}
+        Interval.getStepsForIntervals(intervals: currentFinished, from: Interval.pedometer) { [unowned self] (intervalsWithSteps) in
+            let intervals = savedFinished + intervalsWithSteps
+            guard !intervals.isEmpty else {
+                self.badgesVC.badges = [Badge.stepsBadges(), Badge.walksBadges()]
+                self.badgesVC.headers = [Strings.totalSteps + "0", Strings.totalWalks + "0"]
+                return
+            }
+            let totalSteps = intervals.filter { $0.activityType != "work" }.compactMap { $0.steps }.reduce(0) {$0 + $1}
             let stepsBadges = Badge.stepsBadges().map { $0.withCurrentNumber(totalSteps) }
-            let totalWalks = intervals.filter {($0.steps ?? 0) > 50}.count
+            let totalWalks = intervals.filter {($0.activityType != "work" && ($0.steps ?? 0) > 50)}.count
             let walksBadges = Badge.walksBadges().map {$0.withCurrentNumber(totalWalks)}
             DispatchQueue.main.async {
                 self.badgesVC.badges = [stepsBadges, walksBadges]

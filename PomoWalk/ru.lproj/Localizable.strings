@@ -8,6 +8,7 @@
 
 // Tab bar
 "Timer" = "Таймер";
+"History" = "История";
 "Badges" = "Достижения";
 "Settings" = "Настройки";
 
@@ -19,7 +20,7 @@
 
 "Stop the timer?" = "Остановить таймер?";
 
-"Switch to"  = "Переключиться на ";
+"Switch to "  = "Переключиться на ";
 "work?" = "работу?";
 "walk?" = "ходьбу?";
 
@@ -28,6 +29,17 @@
 
 "Steps: " = "Шаги: ";
 "Total steps today: " = "Всего шагов за сегодня: ";
+
+"Tasks" = "Задачи";
+"Tap \"+\" to add a task" = "Нажмите \"+\" чтобы добавить задачу";
+"New task..." = "Добавить задачу...";
+"Cancel" = "Отмена";
+"Edit" = "Изменить";
+"Delete" = "Удалить";
+
+// History
+"Here will be displayed\n\nyour finished intervals" = "Здесь будут отображены\n\nзавершённые интервалы";
+"Delete this interval?" = "Удалить интервал?";
 
 // Badges
 "Steps counting is unavailable\n\non this device" = "Подсчёт шагов недоступен\n\nна данном устройстве";
@@ -40,6 +52,10 @@
 "Grab your phone and walk!" = "Возьми телефон и пройдись!";
 "Long pause!" = "Большой перерыв!";
 "It's time to go back to work!" = "Пора возвращаться к работе!";
+"Focus 'til " = "Сконцентрируйся до ";
+"Rest 'til " = "Отдых до ";
+"Launch the app and start new timer." = "Запустите приложение и включите таймер снова.";
+
 
 // Base Settings
 "(Сurrent timer will be stopped on settings change)" = "(При смене настроек текущий таймер будет остановлен)";
