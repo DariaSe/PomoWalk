@@ -47,13 +47,15 @@ class LabelStepperView: UIView {
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.alignment = .center
-        stepperUnit.setWidth(equalTo: 70)
+        stackView.spacing = 20
+        stepperUnit.setWidth(equalTo: 90)
         subStackView.axis = .horizontal
-        subStackView.spacing = 20
         stackView.addArrangedSubview(firstLabel)
         stackView.addArrangedSubview(subStackView)
         subStackView.addArrangedSubview(stepperUnit)
         subStackView.addArrangedSubview(secondLabel)
+        subStackView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        secondLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
     
     func initialSetup() {

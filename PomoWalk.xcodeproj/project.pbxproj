@@ -67,6 +67,8 @@
 		DA8721AD24A219CC00547425 /* extension UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8721AC24A219CC00547425 /* extension UIViewController.swift */; };
 		DABCA61324488BC500682368 /* extension Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCA61224488BC500682368 /* extension Calendar.swift */; };
 		DABCA61524488D1400682368 /* WeekDayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCA61424488D1400682368 /* WeekDayPickerView.swift */; };
+		DAC7023024ABB90E0039D6C8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC7022F24ABB90E0039D6C8 /* HealthKit.framework */; };
+		DAC7023424ABBE940039D6C8 /* CMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7023324ABBE940039D6C8 /* CMService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +136,8 @@
 		DA8721AC24A219CC00547425 /* extension UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension UIViewController.swift"; sourceTree = "<group>"; };
 		DABCA61224488BC500682368 /* extension Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension Calendar.swift"; sourceTree = "<group>"; };
 		DABCA61424488D1400682368 /* WeekDayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayPickerView.swift; sourceTree = "<group>"; };
+		DAC7022F24ABB90E0039D6C8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		DAC7023324ABBE940039D6C8 /* CMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC7023024ABB90E0039D6C8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +232,7 @@
 			children = (
 				DA77DB3D243EFEDD00B0B8A1 /* PomoWalk */,
 				DA77DB3C243EFEDD00B0B8A1 /* Products */,
+				DAC7022E24ABB90E0039D6C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,6 +258,7 @@
 				DA8721A524A1093000547425 /* Model */,
 				DA02F8B0248A956C0087E274 /* IntervalsManager.swift */,
 				DA02F8B2248BCC8F0087E274 /* NotificationsManager.swift */,
+				DAC7023324ABBE940039D6C8 /* CMService.swift */,
 				DA7DE9A02444772E00407C5C /* Extensions */,
 				DA77DB47243EFEE000B0B8A1 /* Assets.xcassets */,
 				DA02F89F2489665B0087E274 /* Sounds */,
@@ -343,6 +350,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DAC7022E24ABB90E0039D6C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAC7022F24ABB90E0039D6C8 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,6 +445,7 @@
 				DA7DE96F2440A7F700407C5C /* Fonts.swift in Sources */,
 				DA57E1F42497B97900248AD9 /* LabelButtonView.swift in Sources */,
 				DA7DE9712440C1EC00407C5C /* Colors.swift in Sources */,
+				DAC7023424ABBE940039D6C8 /* CMService.swift in Sources */,
 				DA7DE96924409B6800407C5C /* TimerCounterView.swift in Sources */,
 				DA57E204249BC54400248AD9 /* BadgeCollectionViewCell.swift in Sources */,
 				DA7DE97B2441A67F00407C5C /* extension Date.swift in Sources */,
@@ -619,6 +635,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PomoWalk/PomoWalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9B6XMQ42ZT;
@@ -639,6 +656,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PomoWalk/PomoWalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9B6XMQ42ZT;

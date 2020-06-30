@@ -40,6 +40,7 @@
 // History
 "Here will be displayed\n\nyour finished intervals" = "Here will be displayed\n\nyour finished intervals";
 "Delete this interval?" = "Delete this interval?";
+"unavailable" = "unavailable";
 
 // Badges
 "Steps counting is unavailable\n\non this device" = "Steps counting is unavailable\n\non this device";
@@ -54,7 +55,7 @@
 "It's time to go back to work!" = "It's time to go back to work!";
 "Focus 'til " = "Focus 'til ";
 "Rest 'til " = "Rest 'til ";
-"Launch the app and start new timer." = "Launch the app and start new timer.";
+"Start new timer to continue." = "Start new timer to continue.";
 
 // Base Settings
 "(Сurrent timer will be stopped on settings change)" = "(Сurrent timer will be stopped on settings change)";

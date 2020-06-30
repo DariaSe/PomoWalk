@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     var activityType: ActivityType = .work {
         didSet {
             counter.type = activityType
-            totalStepsLabel.textColor = UIColor.walkCounterColor.withAlphaComponent(0.8)
             switch activityType {
             case .work:
                 timerLabel.textColor = UIColor.workCounterColor
@@ -69,7 +68,6 @@ class MainViewController: UIViewController {
     let walkWorkButton = RoundButton()
    
     let currentStepsLabel = UILabel()
-    let totalStepsLabel = UILabel()
     
     let taskButton = UIButton()
     
@@ -112,11 +110,6 @@ class MainViewController: UIViewController {
         currentStepsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         currentStepsLabel.bottomAnchor.constraint(equalTo: timerLabel.topAnchor, constant: -10).isActive = true
         
-        view.addSubview(totalStepsLabel)
-        totalStepsLabel.translatesAutoresizingMaskIntoConstraints = false
-        totalStepsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        totalStepsLabel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
-        
         taskButton.constrainToLayoutMargins(of: view, leading: 0, trailing: 0, top: nil, bottom: nil)
         taskButton.bottomAnchor.constraint(equalTo: timerLabel.topAnchor, constant: -10).isActive = true
     }
@@ -139,8 +132,6 @@ class MainViewController: UIViewController {
         currentStepsLabel.font = UIFont.stepperUnitFont
         currentStepsLabel.text = Strings.steps + "0"
         
-        totalStepsLabel.font = UIFont.settingsTextFont
-        
         taskButton.setTitleColor(UIColor.textColor, for: .normal)
         taskButton.titleLabel?.font = UIFont.stepperUnitFont
         taskButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -151,9 +142,8 @@ class MainViewController: UIViewController {
         coordinator?.showTasks()
     }
     
-    func setupStepsLabels(current: Int, total: Int) {
+    func setupStepsLabels(current: Int) {
         currentStepsLabel.text = String(current)
-        totalStepsLabel.text = String(total)
     }
     
     

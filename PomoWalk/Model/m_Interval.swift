@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreMotion
+import HealthKit
 
 enum ActivityType: String {
     case work
@@ -85,7 +86,6 @@ struct Interval: Codable {
     static func filterAndSaveFinished(from intervals: [Interval]) {
         let finishedIntervals = intervals.filter { ($0.endDate < Date()) }
         getStepsForIntervals(intervals: finishedIntervals, from: pedometer) { (intervals) in
-            print("get steps")
             if let savedFinished = Interval.loadFinishedFromFile() {
                 Interval.saveFinishedToFile(intervals: savedFinished + intervals)
             }
@@ -112,10 +112,10 @@ struct Interval: Codable {
         }
     }
     
-    func getSteps(from pedometer: CMPedometer, completion: @escaping (Int) -> Void) {
-        guard CMPedometer.isStepCountingAvailable() else { return }
+    func getSteps(from pedometer: CMPedometer, completion: @escaping (Int?) -> Void) {
+        guard CMPedometer.isStepCountingAvailable() else { completion(nil); return }
         pedometer.queryPedometerData(from: startDate, to: endDate) { (data, error) in
-            guard let data = data, error == nil else { return }
+            guard let data = data, error == nil else { completion(nil); return }
             completion(Int(truncating: data.numberOfSteps))
         }
     }

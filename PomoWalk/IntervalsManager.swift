@@ -36,7 +36,7 @@ class IntervalsManager {
                 }
             }
             else {
-                for _ in 1...2 {
+                for _ in 1...24 {
                     let workInterval = createInterval(startingWith: startDate, type: .work)
                     intervals.append(workInterval)
                     startDate += workDuration

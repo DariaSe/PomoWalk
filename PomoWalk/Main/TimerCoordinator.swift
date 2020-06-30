@@ -54,7 +54,6 @@ class TimerCoordinator: NSObject {
     func start() {
         timerVC.coordinator = self
         timerManager.delegate = self
-        showTotalSteps()
         if let intervals = Interval.loadAllFromFile(), !intervals.isEmpty {
             if let currentInterval = intervals
                 .filter({($0.startDate < (Date() + 1))&&($0.endDate > Date())}).first {
@@ -63,21 +62,22 @@ class TimerCoordinator: NSObject {
                 activityType = ActivityType(rawValue: currentInterval.activityType)!
                 if CMPedometer.isStepCountingAvailable() {
                     currentInterval.getSteps(from: pedometer) { [unowned self] (stepsNumber) in
-                        self.showCurrentSteps(startingWith: stepsNumber)
+                        self.showCurrentSteps(startingWith: stepsNumber ?? 0)
                     }
                 }
                 timerManager.startTimer()
                 timerVC.isTimerRunning = true
             }
             else {
+                stopTimer()
                 setDefaultUI()
-                Interval.filterAndSaveFinished(from: intervals)
             }
         }
         else {
             setDefaultUI()
         }
         getTasks()
+      
         UserDefaults.standard.addObserver(self, forKeyPath: BaseSettings.workIntervalDurationKey, options: .new, context: nil)
         UserDefaults.standard.addObserver(self, forKeyPath: BaseSettings.walkIntervalDurationKey, options: .new, context: nil)
     }
@@ -203,6 +203,7 @@ class TimerCoordinator: NSObject {
             showCurrentSteps()
         }
         else {
+            stopTimer()
             setDefaultUI()
         }
     }
@@ -215,22 +216,11 @@ class TimerCoordinator: NSObject {
                 let totalNumber = stepsNumber + countedStepsNumber
                 DispatchQueue.main.async {
                     self.timerVC.currentStepsLabel.text = Strings.steps + String(totalNumber)
-                    self.showTotalSteps()
                 }
             }
         }
     }
     
-    func showTotalSteps() {
-        guard CMPedometer.isStepCountingAvailable() else { return }
-        let calendar = Calendar.current
-        pedometer.queryPedometerData(from: calendar.startOfDay(for: Date()), to: Date()) { [unowned self] (data, error) in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                self.timerVC.totalStepsLabel.text = Strings.stepsToday + String(Int(truncating: data.numberOfSteps))
-            }
-        }
-    }
     
     func showTasks() {
         timerVC.present(tasksVC, animated: true)

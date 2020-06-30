@@ -44,6 +44,7 @@ struct Strings {
     // History
     static let noHistory = "Here will be displayed\n\nyour finished intervals".localized
     static let deleteConfirm = "Delete this interval?".localized
+    static let unavailable = "unavailable".localized
     
     // Badges
     static let stepsUnavailable = "Steps counting is unavailable\n\non this device".localized
@@ -57,7 +58,7 @@ struct Strings {
     static let goWork = "It's time to go back to work!".localized
     static let workUntil = "Focus 'til ".localized
     static let walkUntil = "Rest 'til ".localized
-    static let launchApp = "Launch the app and start new timer.".localized
+    static let startNewTimer = "Start new timer to continue.".localized
     
     // Settings
     static let warning = "(Сurrent timer will be stopped on settings change)".localized

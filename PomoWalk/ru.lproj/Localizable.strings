@@ -40,6 +40,7 @@
 // History
 "Here will be displayed\n\nyour finished intervals" = "Здесь будут отображены\n\nзавершённые интервалы";
 "Delete this interval?" = "Удалить интервал?";
+"unavailable" = "недоступно";
 
 // Badges
 "Steps counting is unavailable\n\non this device" = "Подсчёт шагов недоступен\n\nна данном устройстве";
@@ -54,7 +55,7 @@
 "It's time to go back to work!" = "Пора возвращаться к работе!";
 "Focus 'til " = "Сконцентрируйся до ";
 "Rest 'til " = "Отдых до ";
-"Launch the app and start new timer." = "Запустите приложение и включите таймер снова.";
+"Start new timer to continue." = "Чтобы продолжить, включите таймер снова.";
 
 
 // Base Settings

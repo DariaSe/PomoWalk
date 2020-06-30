@@ -59,11 +59,9 @@ class BaseSettingsView: UIView {
     func initialSetup() {
         workDurationView.firstText = Strings.workFor
         workDurationView.secondText = Strings.minutes
-        workDurationView.stepperUnit.minValue = 2
-//        workDurationView.stepperUnit.minValue = 15
+        workDurationView.stepperUnit.minValue = 15
         workDurationView.stepperUnit.maxValue = 60
-        workDurationView.stepperUnit.step = 1
-//        workDurationView.stepperUnit.step = 5
+        workDurationView.stepperUnit.step = 5
         workDurationView.stepperUnit.value = BaseSettings.workIntervalDuration
         workDurationView.stepperUnit.valueSet = { value in
             BaseSettings.workIntervalDuration = value

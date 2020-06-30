@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow the app to get your number of steps</string>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AnonymousPro-Bold.ttf</string>

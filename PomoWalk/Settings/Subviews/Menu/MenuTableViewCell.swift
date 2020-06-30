@@ -45,8 +45,7 @@ class MenuTableViewCell: UITableViewCell {
     private func initialSetup() {
         contentView.backgroundColor = UIColor.backgroundColor
         shadowingView.pinToEdges(to: contentView)
-        shadowingView.backgroundColor = UIColor.black.withAlphaComponent(0.05)
-        stackView.pinToLayoutMargins(to: contentView)
+        stackView.constrainToEdges(of: contentView, leading: 5, trailing: 15, top: 5, bottom: 5)
         stackView.axis = .horizontal
         stackView.spacing = 20
         stackView.addArrangedSubview(optionTextField)
@@ -59,11 +58,11 @@ class MenuTableViewCell: UITableViewCell {
         optionTextField.layer.cornerRadius = 10
         optionTextField.setLeftPaddingPoints(10)
         optionTextField.autocapitalizationType = .sentences
-        optionTextField.adjustsFontSizeToFitWidth = true
         
         checkmarkLabel.textColor = UIColor.walkCounterColor
         checkmarkLabel.font = UIFont.stepperUnitFont
         checkmarkLabel.text = "\u{2713}"
+        checkmarkLabel.setWidth(equalTo: 16)
     }
     
     func update(text: String, isSelected: Bool) {

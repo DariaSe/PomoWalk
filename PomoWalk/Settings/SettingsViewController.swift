@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
         
         shadowingView.pinToEdges(to: view)
         shadowingView.isHidden = true
-        shadowingView.backgroundColor = UIColor.black.withAlphaComponent(0.15)
+        shadowingView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         
         view.addSubview(dropdownMenu)
         dropdownMenu.isHidden = true

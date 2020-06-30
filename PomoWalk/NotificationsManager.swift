@@ -46,7 +46,7 @@ class NotificationsManager {
     }
     
     private func scheduleNotification(for interval: Interval, nextInterval: Interval?, index: Int) {
-        var text: String
+        var text: String?
         var soundName: String
         let activityType = ActivityType(rawValue: interval.activityType)!
         switch activityType {
@@ -56,27 +56,30 @@ class NotificationsManager {
             soundName = SoundColorSettings.walkEndSound + ".wav"
         }
         if let nextInterval = nextInterval {
-            let nextActivityType = ActivityType(rawValue: nextInterval.activityType)!
-            switch nextActivityType {
-            case .work:
-                text = Strings.goWork + "\n" + Strings.workUntil
-            case .walk:
-                text = Strings.goWalk + "\n" + Strings.walkUntil
-            case .longPause:
-                text = Strings.longPause + "\n" + Strings.walkUntil
-            }
             dateFormatter.dateStyle = .none
             dateFormatter.timeStyle = .short
             let timeString = dateFormatter.string(from: nextInterval.endDate)
-            text += timeString + "."
+            let nextActivityType = ActivityType(rawValue: nextInterval.activityType)!
+            switch nextActivityType {
+            case .work:
+                text = Strings.goWork + "\n" + Strings.workUntil + timeString + "."
+            case .walk:
+                text = Strings.goWalk + "\n" + Strings.walkUntil + timeString + "."
+            case .longPause:
+                text = Strings.longPause + "\n" + Strings.walkUntil + timeString + "."
+            }
         }
         else {
-            text = Strings.launchApp
+            if BaseSettings.isAutoContinued {
+                text = Strings.startNewTimer
+            }
         }
         
         let content = UNMutableNotificationContent()
         content.title = Strings.timeIsUp
-        content.body = text
+        if let text = text {
+            content.body = text
+        }
         content.sound = UNNotificationSound.init(named: UNNotificationSoundName(soundName))
         let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: interval.endDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)

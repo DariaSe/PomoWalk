@@ -57,7 +57,7 @@ class StepperUnitView: UIView {
         stackView.pinToEdges(to: self)
         stackView.alignment = .center
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 0
         stackView.distribution = .equalSpacing
     
         label.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
@@ -73,14 +73,18 @@ class StepperUnitView: UIView {
         label.textAlignment = .center
         
         leftButton.setImage(leftImage, for: .normal)
-        leftButton.imageEdgeInsets = UIEdgeInsets(top: 3, left: 2, bottom: 3, right: 2)
+        leftButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
         leftButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
         leftButton.tintColor = UIColor.walkCounterColor
+        leftButton.setHeight(equalTo: 30)
+        leftButton.setEqualWidth()
 
         rightButton.setImage(rightImage, for: .normal)
-        rightButton.imageEdgeInsets = UIEdgeInsets(top: 3, left: 2, bottom: 3, right: 2)
+        rightButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
         rightButton.addTarget(self, action: #selector(increment), for: .touchUpInside)
         rightButton.tintColor = UIColor.walkCounterColor
+        rightButton.setHeight(equalTo: 30)
+        rightButton.setEqualWidth()
     }
     
     @objc func increment() {

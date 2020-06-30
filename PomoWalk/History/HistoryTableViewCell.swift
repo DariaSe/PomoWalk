@@ -112,7 +112,7 @@ class HistoryTableViewCell: UITableViewCell {
                 label.text = Strings.steps + steps.string
             }
             else {
-                label.text = Strings.steps + ": 0"
+                label.text = Strings.steps + Strings.unavailable
             }
         }
         let dateFormatter = DateFormatter()

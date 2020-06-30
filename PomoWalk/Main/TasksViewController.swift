@@ -57,7 +57,7 @@ class TasksViewController: UIViewController, KeyboardHandler {
         emptyLabel.font = UIFont.settingsTextFont
         emptyLabel.textColor = UIColor.textColor.withAlphaComponent(0.8)
         
-        menuView.constrainToEdges(of: tableViewContainer, leading: 10, trailing: 10, top: 60, bottom: 10)
+        menuView.constrainToEdges(of: tableViewContainer, leading: 0, trailing: 0, top: 60, bottom: 10)
         menuView.isEditable = isEditable
         menuView.backgroundColor = UIColor.clear
         

@@ -36,13 +36,14 @@ class HistoryViewController: UIViewController {
         emptyLabel.font = UIFont.stepperUnitFont
         emptyLabel.textColor = UIColor.textColor.withAlphaComponent(0.8)
         
-        tableView.constrainTopAndBottomToLayoutMargins(of: view, leading: 0, trailing: 0, top: 10, bottom: 10)
+        tableView.constrainTopAndBottomToLayoutMargins(of: view, leading: 0, trailing: 0, top: 10, bottom: 0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.backgroundColor
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.reuseIdentifier)
+        tableView.isHidden = true
         
         UserDefaults.standard.addObserver(self, forKeyPath: SoundColorSettings.colorSchemeKey, options: .new, context: nil)
     }
