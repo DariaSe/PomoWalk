@@ -23,10 +23,19 @@ class HistoryHeaderView: UIView {
     }
     
     let circle = UIView()
-    let upperLine = UIView()
     let lowerLine = UIView()
     let horizontalLine = UIView()
+    
     let dateLabel = UILabel()
+    
+    let pomodoroStackView = UIStackView()
+    let pomodoroImageView = UIImageView()
+    let pomodoroImage = UIImage(named: "Tomato")?.withRenderingMode(.alwaysTemplate)
+    let pomodorosLabel = UILabel()
+    
+    let stepsStackView = UIStackView()
+    let stepsImageView = UIImageView()
+    let stepsImage = UIImage(named: "Steps")?.withRenderingMode(.alwaysTemplate)
     let stepsLabel = UILabel()
     
     var linesColor: UIColor = UIColor.backgroundCompanionColor
@@ -46,16 +55,12 @@ class HistoryHeaderView: UIView {
         horizontalLine.setHeight(equalTo: 1)
         horizontalLine.backgroundColor = linesColor
         
-        upperLine.constrainToEdges(of: self, leading: 20, trailing: nil, top: 0, bottom: 33)
-        upperLine.setWidth(equalTo: 1)
-        upperLine.backgroundColor = linesColor
-        
-        lowerLine.constrainToEdges(of: self, leading: 20, trailing: nil, top: 33, bottom: 0)
+        lowerLine.constrainToEdges(of: self, leading: 20, trailing: nil, top: 46, bottom: 0)
         lowerLine.setWidth(equalTo: 1)
         lowerLine.backgroundColor = linesColor
         
         circle.centerVertically(in: self, leading: nil, trailing: nil)
-        circle.centerXAnchor.constraint(equalTo: upperLine.centerXAnchor).isActive = true
+        circle.centerXAnchor.constraint(equalTo: lowerLine.centerXAnchor).isActive = true
         circle.setSize(width: 10, height: 10)
         circle.layer.cornerRadius = 5
         circle.backgroundColor = UIColor.backgroundCompanionColor
@@ -64,8 +69,26 @@ class HistoryHeaderView: UIView {
         dateLabel.font = UIFont.stepperUnitFont
         dateLabel.textColor = UIColor.backgroundCompanionColor
         
-        stepsLabel.constrainToEdges(of: self, leading: 55, trailing: 20, top: nil, bottom: 5)
-        stepsLabel.font = UIFont.historyTimeFont
+        pomodoroStackView.constrainToEdges(of: self, leading: 55, trailing: nil, top: nil, bottom: 5)
+        pomodoroStackView.axis = .horizontal
+        pomodoroStackView.spacing = 10
+        pomodoroStackView.addArrangedSubview(pomodoroImageView)
+        pomodoroStackView.addArrangedSubview(pomodorosLabel)
+        pomodoroImageView.setSize(width: 20, height: 20)
+        pomodoroImageView.tintColor = UIColor.workCounterColor
+        pomodoroImageView.image = pomodoroImage
+        pomodorosLabel.font = UIFont.stepperUnitFont
+        pomodorosLabel.textColor = UIColor.backgroundCompanionColor
+        
+        stepsStackView.constrainToEdges(of: self, leading: nil, trailing: 20, top: nil, bottom: 5)
+        stepsStackView.axis = .horizontal
+        stepsStackView.spacing = 10
+        stepsStackView.addArrangedSubview(stepsImageView)
+        stepsStackView.addArrangedSubview(stepsLabel)
+        stepsImageView.setSize(width: 20, height: 20)
+        stepsImageView.tintColor = UIColor.walkCounterColor
+        stepsImageView.image = stepsImage
+        stepsLabel.font = UIFont.stepperUnitFont
         stepsLabel.textColor = UIColor.backgroundCompanionColor
     }
 }

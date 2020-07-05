@@ -32,7 +32,7 @@ class HistoryCoordinator {
     
     var intervals: [Interval] = [] {
         didSet {
-            guard !intervals.isEmpty else { self.historyVC.intervals = [[]]; return }
+            guard !intervals.isEmpty else { self.historyVC.intervals = [[Interval]](); return }
             let divided = self.dividedIntervals(intervals)
             DispatchQueue.main.async {
                 self.historyVC.intervals = divided

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  PomoWalk
+
+  Created by Дарья Селезнёва on 01.07.2020.
+  Copyright © 2020 dariaS. All rights reserved.
+*/
+
+NSMotionUsageDescription = "Чтобы получить данные о количестве шагов, разрешите приложению использовать данные устройства о Вашей двигательной активности";

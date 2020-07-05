@@ -32,6 +32,72 @@ struct Interval: Codable {
         }
     }
     
+    static func historySamples() -> [[Interval]] {
+        let date = Date() - 22500
+        let yesterday = date - 86400 - 16500
+        let yesterdayfirstPomEnd = yesterday + 1800
+        let yesterdayfirstRestEnd = yesterdayfirstPomEnd + 300
+        let yesterdaysecondPomEnd = yesterdayfirstRestEnd + 1800
+        let yesterdaysecondRestEnd = yesterdaysecondPomEnd + 300
+        let yesterdaythirdPomEnd = yesterdaysecondRestEnd + 1800
+        let yesterdaylongPauseEnd = yesterdaythirdPomEnd + 600
+        let yesterdayFourthPomEnd = yesterdaylongPauseEnd + 1800
+        
+        let firstPomEnd = date + 1800
+        let firstRestEnd = firstPomEnd + 300
+        let secondPomEnd = firstRestEnd + 1800
+        let secondRestEnd = secondPomEnd + 300
+        let thirdPomEnd = secondRestEnd + 1800
+        return [
+            [Interval(startDate: yesterday, endDate: yesterdayfirstPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task1, steps: 2),
+            Interval(startDate: yesterdayfirstPomEnd, endDate: yesterdayfirstRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 443),
+            Interval(startDate: yesterdayfirstRestEnd, endDate: yesterdaysecondPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task1, steps: 3),
+            Interval(startDate: yesterdaysecondPomEnd, endDate: yesterdaysecondRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 378),
+            Interval(startDate: yesterdaysecondRestEnd, endDate: yesterdaythirdPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task2, steps: 1),
+            Interval(startDate: yesterdaythirdPomEnd, endDate: yesterdaylongPauseEnd, activityType: ActivityType.longPause.rawValue, task: nil, steps: 872),
+            Interval(startDate: yesterdaylongPauseEnd, endDate: yesterdayFourthPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task3, steps: 2)],
+            
+            [Interval(startDate: date, endDate: firstPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task3, steps: 2),
+            Interval(startDate: firstPomEnd, endDate: firstRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 443),
+            Interval(startDate: firstRestEnd, endDate: secondPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task2, steps: 3),
+            Interval(startDate: secondPomEnd, endDate: secondRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 378),
+            Interval(startDate: secondRestEnd, endDate: thirdPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task1, steps: 1)]
+        ]
+    }
+    
+    static func badgesSamples() -> [Interval] {
+        let date = Date() - 22500
+        let yesterday = date - 86400 - 16500
+        let yesterdayfirstPomEnd = yesterday + 1800
+        let yesterdayfirstRestEnd = yesterdayfirstPomEnd + 300
+        let yesterdaysecondPomEnd = yesterdayfirstRestEnd + 1800
+        let yesterdaysecondRestEnd = yesterdaysecondPomEnd + 300
+        let yesterdaythirdPomEnd = yesterdaysecondRestEnd + 1800
+        let yesterdaylongPauseEnd = yesterdaythirdPomEnd + 600
+        let yesterdayFourthPomEnd = yesterdaylongPauseEnd + 1800
+        
+        let firstPomEnd = date + 1800
+        let firstRestEnd = firstPomEnd + 300
+        let secondPomEnd = firstRestEnd + 1800
+        let secondRestEnd = secondPomEnd + 300
+        let thirdPomEnd = secondRestEnd + 1800
+        return [
+            Interval(startDate: yesterday, endDate: yesterdayfirstPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task1, steps: 2),
+            Interval(startDate: yesterdayfirstPomEnd, endDate: yesterdayfirstRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 443),
+            Interval(startDate: yesterdayfirstRestEnd, endDate: yesterdaysecondPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task1, steps: 3),
+            Interval(startDate: yesterdaysecondPomEnd, endDate: yesterdaysecondRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 378),
+            Interval(startDate: yesterdaysecondRestEnd, endDate: yesterdaythirdPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task2, steps: 1),
+            Interval(startDate: yesterdaythirdPomEnd, endDate: yesterdaylongPauseEnd, activityType: ActivityType.longPause.rawValue, task: nil, steps: 872),
+            Interval(startDate: yesterdaylongPauseEnd, endDate: yesterdayFourthPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task3, steps: 2),
+            
+            Interval(startDate: date, endDate: firstPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task3, steps: 2),
+            Interval(startDate: firstPomEnd, endDate: firstRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 443),
+            Interval(startDate: firstRestEnd, endDate: secondPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task2, steps: 3),
+            Interval(startDate: secondPomEnd, endDate: secondRestEnd, activityType: ActivityType.walk.rawValue, task: nil, steps: 378),
+            Interval(startDate: secondRestEnd, endDate: thirdPomEnd, activityType: ActivityType.work.rawValue, task: Strings.task1, steps: 1)
+        ]
+    }
+    
     static let pedometer = CMPedometer()
     
     static func current() -> Interval? {

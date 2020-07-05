@@ -83,11 +83,11 @@ extension HistoryViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 56
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 66
+        return 92
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -96,12 +96,14 @@ extension HistoryViewController: UITableViewDelegate {
         header.backgroundColor = UIColor.backgroundColor
         dateFormatter.dateStyle = .medium
         header.dateText = dateFormatter.string(from: intervals[section].first!.endDate)
+        let workIntervals = intervals[section].filter({ $0.activityType == ActivityType.work.rawValue }).count
+        header.pomodorosLabel.text = workIntervals.string
         let totalSteps = intervals[section]
             .filter { $0.activityType != ActivityType.work.rawValue }
             .compactMap {$0.steps}
             .reduce(0) { $0 + $1 }
-        header.stepsText = Strings.totalSteps + totalSteps.string
-        header.upperLine.backgroundColor = UIColor.clear
+        
+        header.stepsText = totalSteps.string
         return header
     }
     

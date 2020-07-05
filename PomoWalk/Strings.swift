@@ -45,6 +45,8 @@ struct Strings {
     static let noHistory = "Here will be displayed\n\nyour finished intervals".localized
     static let deleteConfirm = "Delete this interval?".localized
     static let unavailable = "unavailable".localized
+    static let feet = "\u{1F463}"
+    static let tomato = "\u{1F345}"
     
     // Badges
     static let stepsUnavailable = "Steps counting is unavailable\n\non this device".localized
@@ -77,4 +79,13 @@ struct Strings {
     static let vibration = "Vibration".localized
     
     static let colorScheme = "Color scheme".localized
+    
+    static let contact = "Contact the developer".localized
+    static let privacyPolicy = "Privacy policy".localized
+    
+    static let policy = "policy".localized
+    
+    static let task1 = "Sketching".localized
+    static let task2 = "Web design courses".localized
+    static let task3 = "Self-development books".localized
 }

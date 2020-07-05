@@ -10,11 +10,11 @@ import Foundation
 
 class IntervalsManager {
     
-    lazy var workDuration = TimeInterval(BaseSettings.workIntervalDuration * 60)
-    lazy var walkDuration = TimeInterval(BaseSettings.walkIntervalDuration * 60)
+    var workDuration: TimeInterval { TimeInterval(BaseSettings.workIntervalDuration * 60) }
+    var walkDuration: TimeInterval { TimeInterval(BaseSettings.walkIntervalDuration * 60) }
     
-    lazy var workIntervalsCount = BaseSettings.longPauseAfter
-    lazy var longPauseDuration = TimeInterval(BaseSettings.longPauseDuration * 60)
+    var workIntervalsCount: Int { BaseSettings.longPauseAfter }
+    var longPauseDuration: TimeInterval { TimeInterval(BaseSettings.longPauseDuration * 60) }
     
     func createAllIntervals(startingWith type: ActivityType) -> [Interval] {
         var startDate = Date()

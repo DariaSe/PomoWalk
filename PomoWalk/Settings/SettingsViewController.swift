@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MessageUI
 
 class SettingsViewController: UIViewController {
     
@@ -19,13 +20,14 @@ class SettingsViewController: UIViewController {
     
     let baseSettingsView = BaseSettingsView()
     let soundColorSettingsView = SoundColorSettingsView()
+    let policyContactView = PolicyContactView()
     
     let dropdownMenu = MenuView()
     
     let shadowingView = UIView()
     
     var player: AVAudioPlayer?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundColor
@@ -42,6 +44,13 @@ class SettingsViewController: UIViewController {
         warningLabel.text = Strings.warning
         
         soundColorSettingsView.delegate = self
+        
+        policyContactView.showMail = { [unowned self] in
+            self.showMail()
+        }
+        policyContactView.showPrivacyPolicy = { [unowned self] in
+            self.showPrivacyPolicy()
+        }
         
         UserDefaults.standard.addObserver(self, forKeyPath: SoundColorSettings.colorSchemeKey, options: .new, context: nil)
     }
@@ -71,6 +80,7 @@ class SettingsViewController: UIViewController {
         stackView.addArrangedSubview(warningLabel)
         stackView.addArrangedSubview(baseSettingsView)
         stackView.addArrangedSubview(soundColorSettingsView)
+        stackView.addArrangedSubview(policyContactView)
         
         shadowingView.pinToEdges(to: view)
         shadowingView.isHidden = true
@@ -108,7 +118,7 @@ extension SettingsViewController: DropdownDelegate {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-         
+            
             self.player = try? AVAudioPlayer(contentsOf: url)
             guard let player = self.player else { return }
             player.volume = 1
@@ -168,6 +178,21 @@ extension SettingsViewController: DropdownDelegate {
             self.soundColorSettingsView.colorSchemeView.buttonTitle = SoundColorSettings.colorSchemes[SoundColorSettings.colorScheme].title
         }
     }
+    
+    func showMail() {
+        let toRecipents = ["pomowalk@gmail.com"]
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        mailVC.setToRecipients(toRecipents)
+        self.present(mailVC, animated: true, completion: nil)
+    }
+    
+    func showPrivacyPolicy() {
+        let policyVC = PolicyViewController()
+        policyVC.text = Strings.policy
+        policyVC.modalPresentationStyle = .overFullScreen
+        self.present(policyVC, animated: true)
+    }
 }
 
 // UserDefaults Observer
@@ -183,6 +208,14 @@ extension SettingsViewController {
             baseSettingsView.setupColors()
             soundColorSettingsView.setupColors()
             dropdownMenu.tableView.reloadData()
+            policyContactView.setColors()
         }
     }
 }
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+

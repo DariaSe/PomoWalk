@@ -12,6 +12,9 @@ class BadgeView: UIView {
     
     var percent: CGFloat = 1.0 {
         didSet {
+            if percent > 1.0 {
+                percent = 1.0
+            }
             setNeedsDisplay()
         }
     }

@@ -25,13 +25,13 @@ extension UIColor {
     static var backgroundColor: UIColor {
         switch colorScheme {
         case .lemonade:
-            return UIColor(netHex: 0xF7F2B1)
+            return UIColor(netHex: 0xFFF89B)
         case .nature:
             return UIColor(netHex: 0x38362E)
         case .blueberry:
             return UIColor(netHex: 0x372948)
         case .frozen:
-            return UIColor(netHex: 0xB5DEFA)
+            return UIColor(netHex: 0xB5E2FA)
         }
     }
     

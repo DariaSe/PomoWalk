@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  PomoWalk
+
+  Created by Дарья Селезнёва on 01.07.2020.
+  Copyright © 2020 dariaS. All rights reserved.
+*/
+
+NSMotionUsageDescription = "To get info about steps count, allow the app to access the physical activity data";
